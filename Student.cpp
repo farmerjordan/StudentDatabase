@@ -11,14 +11,22 @@ Student::Student(char compare)
 {
 // this is supposed to take in >, < or =
 }
-Student::Print()
+void Student::Print()
 {
 	cout<<"Student # : "<<studentID<<endl;
 	cout<<"Name : " <<studentName<<endl;
 	cout<<"Standing : " <<studentStanding<<endl;
 	cout<<"Advisor ID : " <<studentAdvisorID<<endl;
 }
-Student:UpdateAdvisor(int ID)
+int Student::GetStudentID()
+{
+	return studentID;
+}
+int Student::GetStudentAdvisorID()
+{
+	return studentAdvisorID;
+}
+void Student::UpdateAdvisorID(int ID)
 {
 	studentAdvisorID = ID;
 }
