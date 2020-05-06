@@ -1,8 +1,9 @@
 //student functionality
 //constructor
+#include "Student.h"
 Student::Student(int ID, str name, str grade, int advisor)
 {
-	studentID = n1;
+	studentID = ID;
 	studentName = name;
 	studentStanding = grade;
 	studentAdvisorID = advisor;
@@ -16,7 +17,7 @@ void Student::Print()
 	cout<<"Student # : "<<studentID<<endl;
 	cout<<"Name : " <<studentName<<endl;
 	cout<<"Standing : " <<studentStanding<<endl;
-	cout<<"Advisor ID : " <<studentAdvisorID<<endl;
+	cout<<"Advisor ID : " <<studentAdvisorID<<endl<<endl;//to seperate the students when we print them
 }
 int Student::GetStudentID()
 {
