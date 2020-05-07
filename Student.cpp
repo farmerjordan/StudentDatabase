@@ -2,36 +2,60 @@
 
 using namespace std;
 
+#include "Student.h"
+
 //student functionality
 //constructor
-#include "Student.h"
-Student::Student(int ID, string name, string grade, int advisor)
-{
-	studentID = ID;
-	studentName = name;
-	studentStanding = grade;
-	studentAdvisorID = advisor;
+
+Student::Student(){
+	studentID = 0;
+	studentName = "";
+	studentGrade = "";
+	studentMajor = "";
+	studentGPA = 0.0;
+	advisorID = 0;
 }
-Student::Student(char compare)
+
+Student::Student(int thisStudentID, string thisName, string thisGrade, string thisMajor, double thisGPA, int thisAdvisorID)
+{
+	studentID = thisStudentID;
+	studentName = thisName;
+	studentGrade = thisGrade;
+	studentMajor = thisMajor;
+	studentGPA = thisGPA;
+	advisorID = thisAdvisorID;
+}
+
+Student::Student(char compare, int studentID1, int studentID2)
 {
 // this is supposed to take in >, < or =
 }
-void Student::Print()
+
+//Number 3 - Find and display student information given the students ID
+void Student::PrintStudentInfo(int thisStudentID)
 {
-	cout<<"Student # : "<<studentID<<endl;
-	cout<<"Name : " <<studentName<<endl;
-	cout<<"Standing : " <<studentStanding<<endl;
-	cout<<"Advisor ID : " <<studentAdvisorID<<endl<<endl;//to separate the students when we print them
+	cout << "Student ID : "<< studentID << endl;
+	cout << "Name : " << studentName << endl;
+	cout << "Grade : " << studentGrade << endl;
+	cout << "Major : " << studentMajor << endl;
+	cout << "GPA : " << studentGPA << endl;
+	cout << "Advisor ID : " << advisorID << endl;
+	cout << " " << endl;
 }
-int Student::GetStudentID()
+
+int Student::GetStudentID() //Not sure if this method is particularly needed
 {
 	return studentID;
 }
-int Student::GetStudentAdvisorID()
+
+//Number 5 - Given a student's ID, print the name and info of their faculty advisor
+void Student::GetStudentAdvisorInfo(int studentID)
 {
-	return studentAdvisorID;
+	//call method from faculty that prints faculty information
 }
-void Student::UpdateAdvisorID(int ID)
+
+void Student::UpdateAdvisorID(int thisStudentID, int thisAdvisorID)
 {
-	studentAdvisorID = ID;
+	advisorID = thisAdvisorID;
+	//Update the note in the tree, must also update in faculty tree to remove student from one advisor and move to another
 }

@@ -6,16 +6,19 @@ using namespace std;
 class Student
 {
 	public:
-		Student(char compare);
-		Student(int ID, string name, string grade, int advisor);
-		void Print();
+		Student();
+		Student(char compare, int studentID1, int studentID2); //Overload comparison operator
+		Student(int studentID, string name, string grade, string major, double gpa, int advisorID); //Overload initialize a new student
+		void PrintStudentInfo(int studentID); //Number 3 - Find and display student information given the students ID
 		int GetStudentID();
-		int GetStudentAdvisorID();
-		void UpdateAdvisorID();
+		void GetStudentAdvisorInfo(int studentID); //Number 5 - Given a student's ID, print the name and info of their faculty advisor
+		void UpdateAdvisorID(int studentID, int advisorID); //Number 11 - Change a student's advisor given the student ID and the new faculty ID. Must have a counterpart in faculty to remove a student from a faculty
 
 	private:
-		int studentID = 0;
-		string studentName = NULL;
-		string studentStanding = NULL;
-		int studentAdvisorID = 0;
-}
+		int studentID;
+		string studentName;
+		string studentGrade;
+		string studentMajor;
+		double studentGPA;
+		int advisorID;
+};
