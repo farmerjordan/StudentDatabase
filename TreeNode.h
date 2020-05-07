@@ -1,3 +1,6 @@
+#ifndef TREENODE
+#define TREENODE
+
 #include <iostream>
 
 using namespace std;
@@ -30,4 +33,6 @@ class TreeNode{
     }
 
 
-}
+};
+
+#endif
