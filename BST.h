@@ -65,6 +65,48 @@ class BST
       return curr->data;
     }
 
+    bool isEmpty()
+    {
+      return (root == NULL);
+    }
+
+    void insert(T nodeValue)
+    {
+      //Add check if the value already exists in the tree
+
+      TreeNode<T> *node = new TreeNode<T>(nodeValue);
+
+      if(isEmpty())
+      {
+        root = node; //Tree is empty, make the inserted node the root
+      }else //Tree is not empty
+      {
+        TreeNode<T> *curr = root; //Start at the root
+        TreeNode<T> *parent;
+
+        while(curr != NULL) //While you aren't at the bottom of the tree
+        {
+            parent = curr;
+            if(nodeValue < curr->data)//Go left
+            {
+              curr = curr->left;
+              if(curr == NULL) //Reached insertion point
+              {
+                parent->left = node;
+                break; //insertion complete
+              }
+            }else //Go right
+            {
+              curr = curr->right;
+              if(curr == NULL)
+              {
+                parent->right = node;
+                break;
+              }
+            }
+        }
+      }
+    }
 
 };
 
