@@ -5,7 +5,7 @@ using namespace std;
 //student functionality
 //constructor
 #include "Faculty.h"
-Faculty::Faculty(int ID, str name, str position,str dept, alistsomehowofallofthestudents)
+Faculty::Faculty(int ID, string name, string position, string dept, alistsomehowofallofthestudents)
 {
 	facultyID = ID;
 	facultyName = name;

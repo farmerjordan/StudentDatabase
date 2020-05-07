@@ -5,7 +5,7 @@ using namespace std;
 //student functionality
 //constructor
 #include "Student.h"
-Student::Student(int ID, str name, str grade, int advisor)
+Student::Student(int ID, string name, string grade, int advisor)
 {
 	studentID = ID;
 	studentName = name;
