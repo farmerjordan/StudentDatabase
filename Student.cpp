@@ -21,7 +21,7 @@ void Student::Print()
 	cout<<"Student # : "<<studentID<<endl;
 	cout<<"Name : " <<studentName<<endl;
 	cout<<"Standing : " <<studentStanding<<endl;
-	cout<<"Advisor ID : " <<studentAdvisorID<<endl<<endl;//to seperate the students when we print them
+	cout<<"Advisor ID : " <<studentAdvisorID<<endl<<endl;//to separate the students when we print them
 }
 int Student::GetStudentID()
 {

@@ -5,7 +5,7 @@ using namespace std;
 class Faculty
 {
 	public:
-		Faculty(int ID, string name, string position, string dept, alistsomehowofallofthestudents);
+		Faculty(int ID, str name, str position,str dept/*, alistsomehowofallofthestudents*/);
 		Faculty(char compare);
 		void Print();
 		int GetFacultyID();
@@ -13,8 +13,9 @@ class Faculty
 		void RemoveAdvisee(int ID);
 	private:
 		int facultyID = 0;
-		string facultyName = NULL;
-		string facultyPosition = NULL;
-		string facultyDepartment = NULL;
-		int whatdowewantthestudentlisttolooklike?! = NULL or 0;
+		str facultyName = NULL;
+		str facultyPosition = NULL;
+		str facultyDepartment = NULL;
+		//int whatdowewantthestudentlisttolooklike?! = NULL or 0;
 }
+

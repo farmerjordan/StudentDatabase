@@ -5,13 +5,13 @@ using namespace std;
 //student functionality
 //constructor
 #include "Faculty.h"
-Faculty::Faculty(int ID, string name, string position, string dept, alistsomehowofallofthestudents)
+Faculty::Faculty(int ID, str name, str position,str dept/*, alistsomehowofallofthestudents*/)
 {
 	facultyID = ID;
 	facultyName = name;
 	facultyPosition = position;
 	facultyDepartment = dept;
-	whatdowewantthestudentlisttolooklike?!;
+	//whatdowewantthestudentlisttolooklike?!;
 }
 Faculty::Faculty(char compare)
 {
@@ -24,8 +24,8 @@ void Faculty::Print()
 	cout<<"Position : " <<facultyPosition<<endl;
 	cout<<"Department : " <<facultyDepartment<<endl;
 	cout<<"Advisees : " <<endl;
-	for advisees in advisee list print 4 spaces then print ID# <<endl;
-	print a new line
+	/*for advisees in advisee list print 4 spaces then print ID# <<endl;
+	print a new line*/
 	//to put space between them when were listing them
 }
 int Faculty::GetFacultyID()
