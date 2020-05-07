@@ -1,7 +1,7 @@
 class Faculty
 {
 	public:
-		Faculty(int ID, str name, str position,str dept, alistsomehowofallofthestudents);
+		Faculty(int ID, str name, str position,str dept/*, alistsomehowofallofthestudents*/);
 		Faculty(char compare);
 		void Print();
 		int GetFacultyID();
@@ -12,5 +12,5 @@ class Faculty
 		str facultyName = NULL;
 		str facultyPosition = NULL;
 		str facultyDepartment = NULL;
-		int whatdowewantthestudentlisttolooklike?! = NULL or 0;
+		//int whatdowewantthestudentlisttolooklike?! = NULL or 0;
 }
