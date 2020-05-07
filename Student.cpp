@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 //student functionality
 //constructor
 #include "Student.h"
@@ -31,4 +35,3 @@ void Student::UpdateAdvisorID(int ID)
 {
 	studentAdvisorID = ID;
 }
-	

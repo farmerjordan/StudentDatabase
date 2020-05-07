@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 // student class
 class Student
 {
@@ -8,7 +12,7 @@ class Student
 		int GetStudentID();
 		int GetStudentAdvisorID();
 		void UpdateAdvisorID();
-		
+
 	private:
 		int studentID = 0;
 		str studentName = NULL;
