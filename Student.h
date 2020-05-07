@@ -1,17 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
 // student class
 class Student
 {
 	public:
 		Student(char compare);
-		Student(int ID, str name, str grade, int advisor);
+		Student(int ID, string name, string grade, int advisor);
 		void Print();
 		int GetStudentID();
 		int GetStudentAdvisorID();
 		void UpdateAdvisorID();
-		
+
 	private:
 		int studentID = 0;
-		str studentName = NULL;
-		str studentStanding = NULL;
+		string studentName = NULL;
+		string studentStanding = NULL;
 		int studentAdvisorID = 0;
 }

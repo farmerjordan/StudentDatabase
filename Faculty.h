@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 class Faculty
 {
 	public:
@@ -14,3 +18,4 @@ class Faculty
 		str facultyDepartment = NULL;
 		//int whatdowewantthestudentlisttolooklike?! = NULL or 0;
 }
+

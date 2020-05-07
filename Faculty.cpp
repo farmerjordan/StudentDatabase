@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 //student functionality
 //constructor
 #include "Faculty.h"
@@ -36,4 +40,3 @@ void Faculty::RemoveAdvisee(int ID)
 {
 	//gotta take them out of the linked list or tree
 }
-	
