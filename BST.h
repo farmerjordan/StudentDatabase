@@ -12,7 +12,6 @@ class BST
   public:
     TreeNode<T> *root;
 
-
     BST()
     {
         root = NULL; //Empty tree
@@ -34,6 +33,16 @@ class BST
       cout << node->data << endl;
       printTree(node->right);
     }
+	void printInOrder(TreeNode n)
+	{
+		if (n != null)
+		{
+			InOrder (n -> left);
+			cout<<n-> key<<endl;
+			InOrder(n->right);
+		}
+	}
+
 
     TreeNode<T>* getMax()
     {
