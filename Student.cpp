@@ -49,9 +49,9 @@ int Student::GetStudentID() //Not sure if this method is particularly needed
 }
 
 //Number 5 - Given a student's ID, print the name and info of their faculty advisor
-void Student::GetStudentAdvisorInfo(int studentID)
+int Student::GetStudentAdvisorID(int studentID)
 {
-	//call method from faculty that prints faculty information
+	return advisorID;
 }
 
 void Student::UpdateAdvisorID(int thisStudentID, int thisAdvisorID)
