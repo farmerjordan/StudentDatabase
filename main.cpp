@@ -103,10 +103,55 @@ main()
 		}
 		if (userSelection == 8)
 		{
-			//
+			//delete a student given the ID
+			
+			cout<<"What is the ID of the student you would like to delete : "<<endl;
+			string thisStudentID;
+			cin >> thisStudentID;
+			myStudentTree.deleteNode(thisStudentID);
 		}
 		if (userSelection == 9)
 		{
+			//still working on this but gotta go do stuff with my fam
+			
+			//get input info
+			cout<<"you have selected to create a faculty, please enter their information when prompted."<<endl;
+			cout<<"Faculty ID# : "<<endl;
+			int thisFacultyID;
+			cin >> thisFacultyID;
+			cout<< "/n"<<"FacultyName : "<<endl;
+			string thisFacultyName;
+			cin >> thisFacultyName;
+			cout<< "/n"<<"Faculty Position : "<<endl;
+			string thisFacultyPosition;
+			cin >> thisFacultyPosition;
+			cout<< "/n"<<"Faculty Department : "<<endl;
+			string thisDepartment;
+			cin >> thisDepartment;
+			cout << "does this advisor have any advisees? y or n"<<endl;
+			bool moreAdvisees = true;
+			if (moreAdvisees)
+			{
+				cout<< "/n"<<"Student GPA : "<<endl;
+				Int thisGPA;
+				cin >> thisGPA;
+				cout<< "/n"<<"Students advisor ID 
+				
+			(if unknown enter -1) : "<<endl;
+			string thisAdvisorID;
+			cin >> thisAdvisorID;
+			
+			//create a student from the info
+			new Student thisStudent;
+			thisStudent =  Student(int thisStudentID, string thisName, string thisGrade, string thisMajor, double thisGPA, int thisAdvisorID)
+			
+			//add student to myStudentTree
+			myStudentTree.insert(thisStudent);
+			
+			Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
+			
+			//still need to add this student to this advisors list of students
+			
 			//
 		}
 		if (userSelection == 10)
