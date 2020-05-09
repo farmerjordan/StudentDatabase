@@ -21,4 +21,62 @@ main()
 	cout<<"12 -- remove an advisee from a faculty member from student and faculty ID#'s"<<endl;
 	cout<<"13 -- undo last action"<<endl;
 	cout<<"14 -- exit program"<<endl;
+	int userSelection;
+	cin >> userSelection;
+	if (userSelection == 1)
+	{
+		//
+	}
+	if (userSelection == 2)
+	{
+		//
+	}
+	if (userSelection == 3)
+	{
+		//
+	}
+	if (userSelection == 4)
+	{
+		//
+	}
+	if (userSelection == 5)
+	{
+		//
+	}
+	if (userSelection == 6)
+	{
+		//
+	}
+	if (userSelection == 7)
+	{
+		//
+	}
+	if (userSelection == 8)
+	{
+		//
+	}
+	if (userSelection == 9)
+	{
+		//
+	}
+	if (userSelection == 10)
+	{
+		//
+	}
+	if (userSelection == 11)
+	{
+		//
+	}
+	if (userSelection == 12)
+	{
+		//
+	}
+	if (userSelection == 13)
+	{
+		//
+	}
+	if (userSelection == 14)
+	{
+		//
+	}
 }
