@@ -16,6 +16,11 @@ Student::Student(){
 	advisorID = 0;
 }
 
+Student::~Student()
+{
+
+}
+
 Student::Student(int thisStudentID, string thisName, string thisGrade, string thisMajor, double thisGPA, int thisAdvisorID)
 {
 	studentID = thisStudentID;
@@ -26,15 +31,15 @@ Student::Student(int thisStudentID, string thisName, string thisGrade, string th
 	advisorID = thisAdvisorID;
 }
 
-Student::Student(char compare, int studentID1, int studentID2)
+Student::Student(char compare, int thisStudentID1, int thisStudentID2)
 {
 // this is supposed to take in >, < or =
 }
 
 //Number 3 - Find and display student information given the students ID
-void Student::PrintStudentInfo(int thisStudentID)
+void Student::PrintStudentInfo(int thisStudentID) //I think we might need to call get methods here, but I am not sure until we try to run the whole program
 {
-	cout << "Student ID : "<< studentID << endl;
+	cout << "Student ID : " << studentID << endl;
 	cout << "Name : " << studentName << endl;
 	cout << "Grade : " << studentGrade << endl;
 	cout << "Major : " << studentMajor << endl;
@@ -49,13 +54,13 @@ int Student::GetStudentID() //Not sure if this method is particularly needed
 }
 
 //Number 5 - Given a student's ID, print the name and info of their faculty advisor
-int Student::GetStudentAdvisorID(int studentID)
+void Student::GetStudentAdvisorInfo(int thisStudentID)
 {
-	return advisorID;
+	//Return all info about that specific faculty
 }
 
 void Student::UpdateAdvisorID(int thisStudentID, int thisAdvisorID)
 {
 	advisorID = thisAdvisorID;
-	//Update the note in the tree, must also update in faculty tree to remove student from one advisor and move to another
+	//Update the node in the tree, must also update in faculty tree to remove student from one advisor and move to another
 }

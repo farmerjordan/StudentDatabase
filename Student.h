@@ -7,6 +7,7 @@ class Student
 {
 	public:
 		Student();
+		~Student();
 		Student(char compare, int studentID1, int studentID2); //Overload comparison operator
 		Student(int studentID, string name, string grade, string major, double gpa, int advisorID); //Overload initialize a new student
 		void PrintStudentInfo(int studentID); //Number 3 - Find and display student information given the students ID

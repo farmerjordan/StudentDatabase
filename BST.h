@@ -33,15 +33,17 @@ class BST
       cout << node->data << endl;
       printTree(node->right);
     }
-	void printInOrder(TreeNode n)
-	{
-		if (n != null)
-		{
-			InOrder (n -> left);
-			cout<<n-> key<<endl;
-			InOrder(n->right);
-		}
-	}
+
+    //Looking at it now, I think this method and the printTree method, they look the exact same
+	  void printInOrder(TreeNode<T> *node)
+	  {
+		  if (node != NULL)
+		  {
+			  printInOrder(node->left);
+			  cout << node->data<<endl;
+			  printInOrder(node->right);
+		  }
+	  }
 
 
     TreeNode<T>* getMax()

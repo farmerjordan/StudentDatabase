@@ -2,29 +2,45 @@
 
 using namespace std;
 
-//student functionality
-//constructor
 #include "Faculty.h"
-Faculty::Faculty(int ID, str name, str position,str dept/*, alistsomehowofallofthestudents*/)
+
+Faculty::Faculty()
 {
-	facultyID = ID;
-	facultyName = name;
-	facultyPosition = position;
-	facultyDepartment = dept;
+	facultyID = 0;
+	facultyName = "";
+	facultyPosition = "";
+	facultyDepartment = "";
+	//empty list of some kind
+}
+
+Faculty::~Faculty()
+{
+
+}
+
+Faculty::Faculty(int thisFacultyID, string thisName, string thisPosition, string thisDepartment/*, alistsomehowofallofthestudents*/)
+{
+	facultyID = thisFacultyID;
+	facultyName = thisName;
+	facultyPosition = thisPosition;
+	facultyDepartment = thisDepartment;
 	//whatdowewantthestudentlisttolooklike?!;
 }
-Faculty::Faculty(char compare)
+
+Faculty::Faculty(char compare, int thisFacultyID1, int thisFacultyID2)
 {
 // this is supposed to take in >, < or =
 }
-void Faculty::Print()
+
+//Number 4 - Find and display faculty information given the faculty ID
+void Faculty::PrintFacultyInfo(int thisFacultyID)
 {
-	cout<<"Faculty # : "<<facultyID<<endl;
-	cout<<"Name : " <<facultyName<<endl;
-	cout<<"Position : " <<facultyPosition<<endl;
-	cout<<"Department : " <<facultyDepartment<<endl;
-	cout<<"Advisees : " <<endl;
-	/*for advisees in advisee list print 4 spaces then print ID# <<endl;
+	cout << "Faculty ID : " << facultyID << endl;
+	cout << "Name : " << facultyName << endl;
+	cout << "Position : " << facultyPosition << endl;
+	cout << "Department : " << facultyDepartment << endl;
+	cout << "Advisees : " << endl;
+	/*for advisees in advisee list print 4 spaces then print all of their info <<endl;
 	print a new line*/
 	//to put space between them when were listing them
 }
@@ -32,11 +48,14 @@ int Faculty::GetFacultyID()
 {
 	return facultyID;
 }
-int Faculty::GetAdviseeID()
+
+//Number 6 - Given a faculty ID, print ALL the names and info of their advisees
+int Faculty::GetAdvisees(int thisFacultyID)
 {
 	//return adviseelist;
 }
-void Faculty::RemoveAdvisee(int ID)
+void Faculty::RemoveAdvisee(int thisFacultyID, int thisStudentID)
 {
+	//i think we also need to randomly assign the student we remove to a new advisee, or prompt user to enter a new advisee ID
 	//gotta take them out of the linked list or tree
 }
