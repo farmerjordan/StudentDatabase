@@ -17,18 +17,6 @@ Faculty::~Faculty()
 {
 
 }
-bool operator < (const Faculty& facultyA, const Faculty& facultyB)
-{
-	return(facultyA.GetFacultyID() < facultyB.GetFacultyID());
-}
-bool operator > (const Faculty& facultyA, const Faculty& facultyB)
-{
-	return(facultyA.GetFacultyID() > facultyB.GetFacultyID());
-}
-bool operator == (const Faculty& facultyA, const Faculty& facultyB)
-{
-	return(facultyA.GetFacultyID() == facultyB.GetFacultyID());
-}
 
 Faculty::Faculty(int thisFacultyID, string thisName, string thisPosition, string thisDepartment/*, alistsomehowofallofthestudents*/)
 {
@@ -39,9 +27,24 @@ Faculty::Faculty(int thisFacultyID, string thisName, string thisPosition, string
 	//whatdowewantthestudentlisttolooklike?!;
 }
 
-Faculty::Faculty(char compare, int thisFacultyID1, int thisFacultyID2)
+bool operator==(const Faculty& faculty1, const Faculty& faculty2)
 {
-// this is supposed to take in >, < or =
+		return(faculty1.facultyID ==  faculty2.facultyID);
+}
+
+bool operator!=(const Faculty& faculty1, const Faculty& faculty2)
+{
+		return(faculty1.facultyID ==  faculty2.facultyID);
+}
+
+bool operator<(const Faculty& faculty1, const Faculty& faculty2)
+{
+		return(faculty1.facultyID ==  faculty2.facultyID);
+}
+
+bool operator>(const Faculty& faculty1, const Faculty& faculty2)
+{
+		return(faculty1.facultyID ==  faculty2.facultyID);
 }
 
 //Number 4 - Find and display faculty information given the faculty ID

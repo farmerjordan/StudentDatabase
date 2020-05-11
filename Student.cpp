@@ -16,22 +16,6 @@ Student::Student(){
 	advisorID = 0;
 }
 
-//Student::~Student(<) i cant tell if this needs to be a method
-bool operator < (const Student& studentA, const Student& studentB)
-{
-	return(studentA.GetStudentID() < studentB.GetStudentID());
-}
-bool operator > (const Student& studentA, const Student& studentB)
-{
-	return(studentA.GetStudentID() > studentB.GetStudentID());
-}
-bool operator == (const Student& studentA, const Student& studentB)
-{
-	return(studentA.GetStudentID() == studentB.GetStudentID());
-}
-
-
-
 Student::Student(int thisStudentID, string thisName, string thisGrade, string thisMajor, double thisGPA, int thisAdvisorID)
 {
 	studentID = thisStudentID;
@@ -42,10 +26,26 @@ Student::Student(int thisStudentID, string thisName, string thisGrade, string th
 	advisorID = thisAdvisorID;
 }
 
-Student::Student(char compare, int thisStudentID1, int thisStudentID2)
+bool operator==(const Student& student1, const Student& student2)
 {
-// this is supposed to take in >, < or =
+		return(student1.studentID ==  student2.studentID);
 }
+
+bool operator!=(const Student& student1, const Student& student2)
+{
+	return(student1.studentID != student2.studentID);
+}
+
+bool operator<(const Student& student1, const Student& student2)
+{
+	return(student1.studentID < student2.studentID);
+}
+
+bool operator>(const Student& student1, const Student& student2)
+{
+	return(student1.studentID > student2.studentID);
+}
+
 
 //Number 3 - Find and display student information given the students ID
 void Student::PrintStudentInfo(int thisStudentID) //I think we might need to call get methods here, but I am not sure until we try to run the whole program
