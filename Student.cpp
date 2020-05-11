@@ -16,10 +16,21 @@ Student::Student(){
 	advisorID = 0;
 }
 
-Student::~Student()
+//Student::~Student(<) i cant tell if this needs to be a method
+bool operator < (const Student& studentA, const Student& studentB)
 {
-
+	return(studentA.GetStudentID() < studentB.GetStudentID());
 }
+bool operator > (const Student& studentA, const Student& studentB)
+{
+	return(studentA.GetStudentID() > studentB.GetStudentID());
+}
+bool operator == (const Student& studentA, const Student& studentB)
+{
+	return(studentA.GetStudentID() == studentB.GetStudentID());
+}
+
+
 
 Student::Student(int thisStudentID, string thisName, string thisGrade, string thisMajor, double thisGPA, int thisAdvisorID)
 {

@@ -17,6 +17,18 @@ Faculty::~Faculty()
 {
 
 }
+bool operator < (const Faculty& facultyA, const Faculty& facultyB)
+{
+	return(facultyA.GetFacultyID() < facultyB.GetFacultyID());
+}
+bool operator > (const Faculty& facultyA, const Faculty& facultyB)
+{
+	return(facultyA.GetFacultyID() > facultyB.GetFacultyID());
+}
+bool operator == (const Faculty& facultyA, const Faculty& facultyB)
+{
+	return(facultyA.GetFacultyID() == facultyB.GetFacultyID());
+}
 
 Faculty::Faculty(int thisFacultyID, string thisName, string thisPosition, string thisDepartment/*, alistsomehowofallofthestudents*/)
 {
