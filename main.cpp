@@ -13,8 +13,8 @@ using namespace std;
 main()
 {
 
-	BST<T> myStudentTree; //instance of BST to make a tree of students
-	BST<T> myFacultyTree; //instance of BST to make a tree of faculty
+	BST<Student> myStudentTree; //instance of BST to make a tree of students
+	BST<Faculty> myFacultyTree; //instance of BST to make a tree of faculty
 	bool analysis = true;
 	while (analysis == true)
 	{
@@ -39,11 +39,11 @@ main()
 
 		if (userSelection == 1)
 		{
-			myStudentTree.printInOrder(/*it says that we have to pass in a node? im not sure how to do that*/)
+			//myStudentTree.printInOrder(/*it says that we have to pass in a node? im not sure how to do that*/)
 		}
 		if (userSelection == 2)
 		{
-			myFacultyTree.printInOrder(/*it says that we have to pass in a node? im not sure how to do that*/)
+			//myFacultyTree.printInOrder(/*it says that we have to pass in a node? im not sure how to do that*/)
 		}
 		if (userSelection == 3)
 		{
@@ -73,7 +73,13 @@ main()
 		}
 		if (userSelection == 6)
 		{
-			//print advisees
+			cout<< "what is the ID of the faculty whose advisees information you would like to retrieve";
+			int thisStudentID;
+			cin >> thisStudentID;
+			//get advisee IDs
+			//while(adviseeCount != 0)
+				//{
+					//print
 		}
 		if (userSelection == 7)
 		{
@@ -139,6 +145,10 @@ main()
 			string thisFacultyDepartment;
 			cin >> thisFacultyDepartment;
       /* I want to wait on this part just because this would require removing an advisee from another advisor and reassigning, we should do this last I think
+	  
+	  // i don think we would have to remove advisees from other people but we may have to confirm that they dont belong to anyone else
+	  
+	  
 			cout << "does this advisor have any advisees? y or n"<<endl;
 			bool moreAdvisees = true;
 			if (moreAdvisees)
@@ -166,11 +176,24 @@ main()
 		}
 		if (userSelection == 10)
 		{
-			//
+			cout<< "what is the ID of the faculty you would like deleted?";
+			int thisFacultyID;
+			cin >> thisFacultyID;
+			myFacultyTree.deleteNode(thisFacultyID);
 		}
 		if (userSelection == 11)
 		{
-			//
+			cout<< "what is the ID of the Student whose advisor you need updated?";
+			int thisStudentID;
+			cin >> thisStudentID;
+			
+			cout<< "what is the ID of their advisor (faculty)?";
+			int thisFacultyID;
+			cin >> thisFacultyID;
+			
+			myStudentTree.UpdateAdvisorID(thisFacultyID);
+			
+			//also need to remove from list of advisees of old advisor and add to new advisor
 		}
 		if (userSelection == 12)
 		{
