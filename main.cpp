@@ -2,32 +2,41 @@
 
 using namespace std;
 
-//#include "Student.h"
+//Do we need to include everything idk?
+#include "Student.h"
+#include "Faculty.h"
+#include "BST.h"
+#include "DoublyLinkedList.h"
+#include "ListNode.h"
+#include "TreeNode.h"
 
 main()
 {
-	BST myStudentTree;
-	BST myFacultyTree;
+
+	BST<T> myStudentTree; //instance of BST to make a tree of students
+	BST<T> myFacultyTree; //instance of BST to make a tree of faculty
 	bool analysis = true;
-	while (analysis)
+	while (analysis == true)
 	{
-		cout<<"Menu - please type a number"<<endl;
-		cout<<"1 -- print all students and their info"<<endl;
-		cout<<"2 -- print all faculty and their info"<<endl;
-		cout<<"3 -- print student information from a provided ID"<<endl;
-		cout<<"4 -- print faculty information from a provided ID"<<endl;
-		cout<<"5 -- print name and info of advisor from provided student ID"<<endl;
-		cout<<"6 -- print all advisee information given advisor ID"<<endl;
-		cout<<"7 -- add a student"<<endl;
-		cout<<"8 -- delete a student from a given ID#"<<endl;
-		cout<<"9 -- add a faculty member"<<endl;
-		cout<<"10 -- delete a faculty member from a given ID#"<<endl;
-		cout<<"11 -- change a students advisor given student ID# and new advisor ID#">>endl;
-		cout<<"12 -- remove an advisee from a faculty member from student and faculty ID#'s"<<endl;
-		cout<<"13 -- undo last action"<<endl;
-		cout<<"14 -- exit program"<<endl;
+		cout << "Menu - Please type the number of the function you would like to complete " << endl;
+		cout << "1 -- Print all students and their info" << endl;
+		cout << "2 -- Print all faculty and their info" << endl;
+		cout << "3 -- Print student information from a provided ID" << endl;
+		cout << "4 -- Print faculty information from a provided ID" << endl;
+		cout << "5 -- Print name and info of advisor from provided student ID" << endl;
+		cout << "6 -- Print information of all advisees from provided advisor ID" << endl;
+		cout << "7 -- Add a student"<< endl;
+		cout << "8 -- Delete a student given their ID" << endl;
+		cout << "9 -- Add a faculty member" << endl;
+		cout << "10 -- Delete a faculty member given their ID" << endl; //Either prompt for a new faculty member to assign advisees to or assign at random
+		cout << "11 -- Change a students advisor given student ID and new advisor ID" << endl;
+		cout << "12 -- Remove an advisee from a faculty member given student ID and faculty ID" << endl;
+		cout << "13 -- Undo last action " << endl;
+		cout << "14 -- Exit program" << endl; //And write to a file
+
 		int userSelection;
 		cin >> userSelection;
+
 		if (userSelection == 1)
 		{
 			myStudentTree.printInOrder(/*it says that we have to pass in a node? im not sure how to do that*/)
@@ -38,29 +47,29 @@ main()
 		}
 		if (userSelection == 3)
 		{
-			cout<<"what is the ID of the student whose information you would like to retrieve"
-			int ID;
-			cin >> ID;
-			Student thisStudent = myStudentTree.search(ID);
-			thisStudent.PrintStudentInfo();//im not 100% sure im calling this right
+			cout << "What is the ID of the student whose information you would like to retrieve?" << endl;
+			int thisStudentID = 0;
+			cin >> thisStudentID;
+			myStudentTree.PrintStudentInfo(thisStudentID);
+			//thisStudent.PrintStudentInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 4)
 		{
-			cout<<"what is the ID of the faculty whose information you would like to retrieve"
-			int ID;
-			cin >> ID;
-			Faculty thisFaculty = myFacultyTree.search(ID);
-			thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
+			cout<<"what is the ID of the faculty whose information you would like to retrieve";
+			int thisFacultyID = 0;
+			cin >> thisFacultyID;
+			myFacultyTree.PrintFacultyInfo(thisFacultyID);
+			//thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 5)
 		{
-			cout<<"what is the ID of the student whose advisor information you would like to retrieve"
-			int ID;
-			cin >> studentID;
-			Student thisStudent = myStudentTree.search(studentID);
-			int advisorID = thisStudent.getAdvisorID();
-			Faculty thisFaculty = myFacultyTree.search(advisorID);
-			thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
+			cout<< "what is the ID of the student whose advisor information you would like to retrieve";
+			int thisStudentID;
+			cin >> thisStudentID; //I'm kinda confused by what you have being done below so I commented it out bc I think the below line should take care of it all
+			myStudentTree.GetStudentAdvisorInfo(thisStudentID);
+			//int advisorID = thisStudent.getAdvisorID();
+			//Faculty thisFaculty = myFacultyTree.search(advisorID);
+			//thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 6)
 		{
@@ -83,37 +92,38 @@ main()
 			string thisMajor;
 			cin >> thisMajor;
 			cout<< "/n"<<"Student GPA : "<<endl;
-			Int thisGPA;
+			int thisGPA;
 			cin >> thisGPA;
 			cout<< "/n"<<"Students advisor ID (if unknown enter -1) : "<<endl;
 			string thisAdvisorID;
 			cin >> thisAdvisorID;
-			
+
 			//create a student from the info
-			new Student thisStudent;
-			thisStudent =  Student(int thisStudentID, string thisName, string thisGrade, string thisMajor, double thisGPA, int thisAdvisorID)
-			
+			//new Student thisStudent;
+			Student thisStudent =  Student(thisStudentID, thisName, thisGrade, thisMajor, thisGPA, thisAdvisorID);
+
 			//add student to myStudentTree
 			myStudentTree.insert(thisStudent);
-			
-			Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
-			
+
+      //Idk whatthis part is for either rn
+			//Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
+
 			//still need to add this student to this advisors list of students
-			
+
 		}
 		if (userSelection == 8)
 		{
 			//delete a student given the ID
-			
+
 			cout<<"What is the ID of the student you would like to delete : "<<endl;
 			string thisStudentID;
 			cin >> thisStudentID;
 			myStudentTree.deleteNode(thisStudentID);
 		}
-		if (userSelection == 9)
+		if (userSelection == 9) //Add a new faculty member.
 		{
 			//still working on this but gotta go do stuff with my fam
-			
+
 			//get input info
 			cout<<"you have selected to create a faculty, please enter their information when prompted."<<endl;
 			cout<<"Faculty ID# : "<<endl;
@@ -126,8 +136,9 @@ main()
 			string thisFacultyPosition;
 			cin >> thisFacultyPosition;
 			cout<< "/n"<<"Faculty Department : "<<endl;
-			string thisDepartment;
-			cin >> thisDepartment;
+			string thisFacultyDepartment;
+			cin >> thisFacultyDepartment;
+      /* I want to wait on this part just because this would require removing an advisee from another advisor and reassigning, we should do this last I think
 			cout << "does this advisor have any advisees? y or n"<<endl;
 			bool moreAdvisees = true;
 			if (moreAdvisees)
@@ -135,24 +146,23 @@ main()
 				cout<< "/n"<<"Student GPA : "<<endl;
 				Int thisGPA;
 				cin >> thisGPA;
-				cout<< "/n"<<"Students advisor ID 
-				
+				cout<< "/n"<<"Students advisor ID
+
 			(if unknown enter -1) : "<<endl;
 			string thisAdvisorID;
-			cin >> thisAdvisorID;
-			
-			//create a student from the info
-			new Student thisStudent;
-			thisStudent =  Student(int thisStudentID, string thisName, string thisGrade, string thisMajor, double thisGPA, int thisAdvisorID)
-			
-			//add student to myStudentTree
-			myStudentTree.insert(thisStudent);
-			
-			Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
-			
-			//still need to add this student to this advisors list of students
-			
-			//
+			cin >> thisAdvisorID;*/
+
+			//create a faculty from the info
+			//new Faculty thisFaculty;
+			Faculty thisFaculty =  Student(thisFacultyID, thisFacultyName, thisFacultyPostion, thisFacultyDepartment /*, empty studentlist*/)
+
+			//add faculty to myFacultyTree
+			myFacultyTree.insert(thisFaculty);
+
+      //IDK what this line is for
+			//Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
+
+
 		}
 		if (userSelection == 10)
 		{
