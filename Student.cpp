@@ -75,7 +75,7 @@ void Student::GetStudentAdvisorInfo(int thisStudentID)
 	//Return all info about that specific faculty
 }
 
-int Student::GetAdvisorID(int thisStudentID)
+int Student::GetAdvisorID()
 {
 	return advisorID;
 }

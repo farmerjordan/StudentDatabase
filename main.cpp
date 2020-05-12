@@ -78,17 +78,23 @@ main()
 		{
 			cout<< "What is the ID of the student whose advisor information you would like to retrieve?";
 			int thisStudentID;
-			cin >> thisStudentID; //I'm kinda confused by what you have being done below so I commented it out bc I think the below line should take care of it all
+			cin >> thisStudentID;
 
-
-			//this will find the student object
-			Student thisStudent = myStudentTree.search(thisStudentID);
-			//retrieve advisor ID from student object
-			int advisorID = thisStudent.GetAdvisorID(thisStudentID);
-			//find faculty object
-			Faculty thisFaculty = myFacultyTree.search(advisorID);
-			//print the actual info
-			thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
+			Student dummyStud = Student();
+			dummyStud.SetStudentID(thisStudentID);
+			if(myStudentTree.search(dummyStud) == true)
+			{
+				int thisAdvisorID = myStudentTree.getNode(dummyStud)->data.GetAdvisorID();
+				Faculty dummyFac = Faculty();
+				dummyFac.SetFacultyID(thisAdvisorID);
+				if(myFacultyTree.search(dummyFac) == true)
+				{
+					myFacultyTree.getNode(dummyFac)->data.PrintFacultyInfo();
+				}
+			}else
+			{
+				cout << "This student does not have an advisor assigned. Please assign an advisor." << endl;
+			} 
 		}
 		if (userSelection == 6)
 		{
