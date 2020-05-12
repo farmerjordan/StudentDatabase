@@ -64,6 +64,11 @@ int Faculty::GetFacultyID()
 	return facultyID;
 }
 
+void Faculty::SetFacultyID(int thisFacultyID)
+{
+	facultyID = thisFacultyID;
+}
+
 //Number 6 - Given a faculty ID, print ALL the names and info of their advisees
 int Faculty::GetAdvisees(int thisFacultyID)
 {
