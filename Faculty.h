@@ -21,13 +21,12 @@ struct Faculty
 		bool operator<(const Faculty& faculty1, const Faculty& faculty2);
 		bool operator>(const Faculty& faculty1, const Faculty& faculty2);
 
-<<<<<<< HEAD
+
 
 		int facultyID ;
-=======
+
 	private:
 		
->>>>>>> 0ff6ee6551328cbd83cb2204ff0e5e345f1e5825
 		string facultyName;
 		string facultyPosition;
 		string facultyDepartment;
