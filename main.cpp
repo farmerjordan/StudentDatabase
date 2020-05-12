@@ -146,7 +146,7 @@ main()
 		{
 			//delete a student given the ID
 			cout<<"Enter the ID of the student you would like to delete : "<<endl;
-			string thisStudentID;
+			int thisStudentID;
 			cin >> thisStudentID;
 			Student dummy = Student();
 			dummy.SetStudentID(thisStudentID);
