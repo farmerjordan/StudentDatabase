@@ -48,6 +48,12 @@ bool Student::operator<(const Student& student)
 	return(this->studentID < student.studentID);
 }
 
+std::ostream& operator<< (std::ostream& out, const Student& student)
+{
+		out << "ID: " << student.studentID << "\n" << "Name: " << student.studentName << "\n" << "Grade: " << student.studentGrade << "\n" << "Major: " << student.studentMajor << "\n" << "GPA: " << student.studentGPA << "\n" << "Advisor: " << student.advisorID << "\n" << " " << endl;
+    return out;
+}
+
 //Number 3 - Find and display student information given the students ID
 void Student::PrintStudentInfo() //I think we might need to call get methods here, but I am not sure until we try to run the whole program
 {

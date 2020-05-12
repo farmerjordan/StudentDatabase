@@ -16,15 +16,12 @@ struct Student
 		void UpdateAdvisorID(int studentID, int advisorID); //Number 11 - Change a student's advisor given the student ID and the new faculty ID. Must have a counterpart in faculty to remove a student from a faculty
 		void SetStudentID(int thisStudentID);
 
-	/*	bool operator==(const Student& student1);
-		bool operator!=(const Student& student1);
-		bool operator<(const Student& student1);
-		bool operator>(const Student& student1);*/
-
 		bool operator==(const Student& student);
 		bool operator!=(const Student& student);
 		bool operator>(const Student& student);
 		bool operator<(const Student& student);
+		friend std::ostream& operator<< (std::ostream& out, const Student& student);
+
 
 		int studentID;
 		string studentName;

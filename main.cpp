@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -39,12 +40,12 @@ main()
 
 		if (userSelection == 1)
 		{
-			//myStudentTree.printInOrder(myStudentTree.root);
+			//myStudentTree.printTree(myStudentTree.root);
 			//I commented this out for the moment because more errors were showing up and it was cluttering up the console
 		}
 		if (userSelection == 2)
 		{
-			//myFacultyTree.printInOrder(myFacultyTree.root);
+			myFacultyTree.printTree(myFacultyTree.root);
 			//I commented this out for the moment because more errors were showing up and it was cluttering up the console
 
 		}

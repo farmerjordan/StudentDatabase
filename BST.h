@@ -24,26 +24,16 @@ class BST
 
     void printTree(TreeNode<T> *node)
     {
-      if(node == NULL)
+      //TreeNode<T>* curr = node;
+      if(node != NULL)
       {
-        return;
+        printTree(node->left);
+        cout << node->data << endl;
+        printTree(node->right);
       }
 
-      printTree(node->left);
-      cout << node->data.id << endl;
-      printTree(node->right);
-    }
 
-    //Looking at it now, I think this method and the printTree method, they look the exact same
-	  void printInOrder(TreeNode<T> *node)
-	  {
-		  if (node != NULL)
-		  {
-			  printInOrder(node->left);
-			  cout << node->data<<endl;
-			  printInOrder(node->right);
-		  }
-	  }
+    }
 
 
     TreeNode<T>* getMax()

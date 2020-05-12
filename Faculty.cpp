@@ -44,25 +44,16 @@ bool Faculty::operator<(const Faculty& faculty)
 	return(this->facultyID < faculty.facultyID);
 }
 
+std::ostream& operator<< (std::ostream& out, const Faculty& faculty)
+{
+		out << "ID: " << faculty.facultyID << "\n" << "Name: " << faculty.facultyName << "\n" << "Position: " << faculty.facultyPosition << "\n" << "Department: " << faculty.facultyDepartment << "\n" << " " << endl;
+    return out;
+}
 /*
-bool operator==(const Faculty& faculty1, const Faculty& faculty2)
+friend ofstream& Faculty::operator<<(ofstream& outstream, const Faculty&faculty)
 {
-		return(faculty1.facultyID ==  faculty2.facultyID);
-}
-
-bool operator!=(const Faculty& faculty1, const Faculty& faculty2)
-{
-		return(faculty1.facultyID !=  faculty2.facultyID);
-}
-
-bool operator<(const Faculty& faculty1, const Faculty& faculty2)
-{
-		return(faculty1.facultyID <  faculty2.facultyID);
-}
-
-bool operator>(const Faculty& faculty1, const Faculty& faculty2)
-{
-		return(faculty1.facultyID > faculty2.facultyID);
+	outstream << "ID: " << faculty.facultyID << "\n" << "Name: " << faculty.facultyName << "\n" << "Position: " << faculty.facultyPosition << "\n" << "Department: " << faculty.facultyDepartment << "\n" << " " << endl;
+	return outstream;
 }*/
 
 //Number 4 - Find and display faculty information given the faculty ID

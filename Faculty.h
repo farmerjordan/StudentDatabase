@@ -16,20 +16,14 @@ struct Faculty
 		int GetAdvisees(int facultyID); //We will need to change this once we decide if we use a list or BST for students so that it returns that type instead of int
 		void RemoveAdvisee(int facultyID, int studentID); //Number 12 - Remove an advisee from a faculty member given the IDs
 
-		//bool operator==(const Faculty& faculty1, const Facult& faculty2);
-		//bool operator!=(const Faculty& faculty1, const Facult& faculty2);
-		//bool operator<(const Faculty& faculty1, const Facult& faculty2);
-		//bool operator>(const Faculty& faculty1, const Facult& faculty2);
-
 		bool operator==(const Faculty& faculty);
 		bool operator!=(const Faculty& faculty);
 		bool operator>(const Faculty& faculty);
 		bool operator<(const Faculty& faculty);
+		friend std::ostream& operator<< (std::ostream& out, const Faculty& faculty);
 
 
 		int facultyID ;
-
-	private:
 		string facultyName;
 		string facultyPosition;
 		string facultyDepartment;
