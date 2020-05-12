@@ -27,6 +27,7 @@ Faculty::Faculty(int thisFacultyID, string thisName, string thisPosition, string
 	//whatdowewantthestudentlisttolooklike?!;
 }
 
+/*
 bool operator==(const Faculty& faculty1, const Faculty& faculty2)
 {
 		return(faculty1.facultyID ==  faculty2.facultyID);
@@ -34,18 +35,18 @@ bool operator==(const Faculty& faculty1, const Faculty& faculty2)
 
 bool operator!=(const Faculty& faculty1, const Faculty& faculty2)
 {
-		return(faculty1.facultyID ==  faculty2.facultyID);
+		return(faculty1.facultyID !=  faculty2.facultyID);
 }
 
 bool operator<(const Faculty& faculty1, const Faculty& faculty2)
 {
-		return(faculty1.facultyID ==  faculty2.facultyID);
+		return(faculty1.facultyID <  faculty2.facultyID);
 }
 
 bool operator>(const Faculty& faculty1, const Faculty& faculty2)
 {
-		return(faculty1.facultyID ==  faculty2.facultyID);
-}
+		return(faculty1.facultyID > faculty2.facultyID);
+}*/
 
 //Number 4 - Find and display faculty information given the faculty ID
 void Faculty::PrintFacultyInfo()

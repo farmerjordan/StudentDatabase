@@ -26,58 +26,10 @@ Student::Student(int thisStudentID, string thisName, string thisGrade, string th
 
 Student::~Student()
 {
-	
+
 }
 
-bool operator==(const Student& student1, const Student& student2)
-{
-	int s1 = student1.studentID;
-	int s2 = student2.studentID;
-	if (s1 == s2)
-	{
-		return true;
-	}
-	return false;
-		
-		//return true/*(student1.studentID ==  student2.studentID)*/;
-}
-
-bool operator!=(const Student& student1, const Student& student2)
-{
-	int s1 = student1.studentID;
-	int s2 = student2.studentID;
-	if (s1 != s2)
-	{
-		return true;
-	}
-	return false;
-	//return true/*(student1.studentID != student2.studentID)*/;
-}
-
-bool operator<(const Student& student1, const Student& student2)
-{
-	int s1 = student1.studentID;
-	int s2 = student2.studentID;
-	if (s1 < s2)
-	{
-		return true;
-	}
-	return false;
-}
-
-bool operator>(const Student& student1, const Student& student2)
-{
-	int s1 = student1.studentID;
-	int s2 = student2.studentID;
-	if (s1 > s2)
-	{
-		return true;
-	}
-	return false;
-	
-	//return true/*(student1.studentID > student2.studentID)*/;
-}
-
+//Boolean overloaded operators
 
 //Number 3 - Find and display student information given the students ID
 void Student::PrintStudentInfo() //I think we might need to call get methods here, but I am not sure until we try to run the whole program
