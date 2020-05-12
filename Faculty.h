@@ -21,6 +21,11 @@ struct Faculty
 		//bool operator<(const Faculty& faculty1, const Facult& faculty2);
 		//bool operator>(const Faculty& faculty1, const Facult& faculty2);
 
+		bool operator==(const Faculty& faculty);
+		bool operator!=(const Faculty& faculty);
+		bool operator>(const Faculty& faculty);
+		bool operator<(const Faculty& faculty);
+
 
 		int facultyID ;
 

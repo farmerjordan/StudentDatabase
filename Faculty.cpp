@@ -27,6 +27,23 @@ Faculty::Faculty(int thisFacultyID, string thisName, string thisPosition, string
 	//whatdowewantthestudentlisttolooklike?!;
 }
 
+bool Faculty::operator==(const Faculty& faculty)
+{
+	return(this->facultyID == faculty.facultyID);
+}
+bool Faculty::operator!=(const Faculty& faculty)
+{
+	return(this->facultyID != faculty.facultyID);
+}
+bool Faculty::operator>(const Faculty& faculty)
+{
+	return(this->facultyID > faculty.facultyID);
+}
+bool Faculty::operator<(const Faculty& faculty)
+{
+	return(this->facultyID < faculty.facultyID);
+}
+
 /*
 bool operator==(const Faculty& faculty1, const Faculty& faculty2)
 {

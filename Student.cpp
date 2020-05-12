@@ -31,6 +31,23 @@ Student::~Student()
 
 //Boolean overloaded operators
 
+bool Student::operator==(const Student& student)
+{
+	return(this->studentID == student.studentID);
+}
+bool Student::operator!=(const Student& student)
+{
+	return(this->studentID != student.studentID);
+}
+bool Student::operator>(const Student& student)
+{
+	return(this->studentID > student.studentID);
+}
+bool Student::operator<(const Student& student)
+{
+	return(this->studentID < student.studentID);
+}
+
 //Number 3 - Find and display student information given the students ID
 void Student::PrintStudentInfo() //I think we might need to call get methods here, but I am not sure until we try to run the whole program
 {

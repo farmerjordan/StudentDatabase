@@ -21,6 +21,11 @@ struct Student
 		bool operator<(const Student& student1);
 		bool operator>(const Student& student1);*/
 
+		bool operator==(const Student& student);
+		bool operator!=(const Student& student);
+		bool operator>(const Student& student);
+		bool operator<(const Student& student);
+
 		int studentID;
 		string studentName;
 		string studentGrade;
