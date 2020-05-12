@@ -50,7 +50,7 @@ main()
 			cout << "What is the ID of the student whose information you would like to retrieve?" << endl;
 			int thisStudentID = 0;
 			cin >> thisStudentID;
-			Student thisStudent = myStudentTree.search(thisStudentID);
+			/*Student thisStudent*/myStudentTree.search(thisStudentID);
 			thisStudent.PrintStudentInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 4)
@@ -66,8 +66,8 @@ main()
 			cout<< "what is the ID of the student whose advisor information you would like to retrieve";
 			int thisStudentID;
 			cin >> thisStudentID; //I'm kinda confused by what you have being done below so I commented it out bc I think the below line should take care of it all
-			
-			
+
+
 			//this will find the student object
 			Student thisStudent = myStudentTree.search(thisStudentID);
 			//retrieve advisor ID from student object
@@ -152,10 +152,10 @@ main()
 			string thisFacultyDepartment;
 			cin >> thisFacultyDepartment;
       /* I want to wait on this part just because this would require removing an advisee from another advisor and reassigning, we should do this last I think
-	  
+
 	  // i don think we would have to remove advisees from other people but we may have to confirm that they dont belong to anyone else
-	  
-	  
+
+
 			cout << "does this advisor have any advisees? y or n"<<endl;
 			bool moreAdvisees = true;
 			if (moreAdvisees)
@@ -193,13 +193,13 @@ main()
 			cout<< "what is the ID of the Student whose advisor you need updated?";
 			int thisStudentID;
 			cin >> thisStudentID;
-			
+
 			cout<< "what is the ID of their advisor (faculty)?";
 			int thisFacultyID;
 			cin >> thisFacultyID;
-			
+
 			myStudentTree.UpdateAdvisorID(thisFacultyID);
-			
+
 			//also need to remove from list of advisees of old advisor and add to new advisor
 		}
 		if (userSelection == 12)

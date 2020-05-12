@@ -19,7 +19,6 @@ struct Student
 		bool operator<(const Student& student1);
 		bool operator>(const Student& student1);
 
-
 		int studentID;
 		string studentName;
 		string studentGrade;
