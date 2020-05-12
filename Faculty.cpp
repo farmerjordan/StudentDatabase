@@ -48,7 +48,7 @@ bool operator>(const Faculty& faculty1, const Faculty& faculty2)
 }
 
 //Number 4 - Find and display faculty information given the faculty ID
-void Faculty::PrintFacultyInfo(int thisFacultyID)
+void Faculty::PrintFacultyInfo()
 {
 	cout << "Faculty ID : " << facultyID << endl;
 	cout << "Name : " << facultyName << endl;
