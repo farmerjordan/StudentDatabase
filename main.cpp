@@ -126,7 +126,7 @@ main()
 			double thisGPA;
 			cin >> thisGPA;
 			cout << "/n" << "Students advisor ID : " << endl;
-			string thisAdvisorID;
+			int thisAdvisorID;
 			cin >> thisAdvisorID;
 
 			//create a student from the info
@@ -199,7 +199,7 @@ main()
 			//Faculty thisFaculty =  Faculty(thisFacultyID, thisFacultyName, thisFacultyPosition, thisFacultyDepartment /*, empty studentlist*/)
 
 			//add faculty to myFacultyTree
-			myFacultyTree.insert(thisFaculty);
+			//myFacultyTree.insert(thisFaculty);
 
       //IDK what this line is for
 			//Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
