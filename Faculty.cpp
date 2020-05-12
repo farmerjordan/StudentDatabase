@@ -85,8 +85,7 @@ void Faculty::AddAdvisee(int adviseeID)
 	advisees->insertFront(adviseeID);
 }
 
-void Faculty::RemoveAdvisee(int thisFacultyID, int thisStudentID)
+void Faculty::RemoveAdvisee(int thisStudentID)
 {
-	//i think we also need to randomly assign the student we remove to a new advisee, or prompt user to enter a new advisee ID
-	//gotta take them out of the linked list or tree
+	advisees->remove(thisStudentID);
 }

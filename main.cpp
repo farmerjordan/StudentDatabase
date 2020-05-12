@@ -239,7 +239,12 @@ main()
 			//add student to myStudentTree
 			myStudentTree.insert(newStudent);
 
-
+			Faculty dummy = Faculty();
+			dummy.SetFacultyID(thisAdvisorID);
+			if(myFacultyTree.search(dummy) == true)
+			{
+				myFacultyTree.getNode(dummy)->data.AddAdvisee(thisStudentID);
+			}
 		  //Need to add the student to the list of ID's for the specified faculty advisor
 			//Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
 
