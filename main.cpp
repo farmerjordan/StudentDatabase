@@ -58,7 +58,7 @@ main()
 			cout<<"what is the ID of the faculty whose information you would like to retrieve";
 			int thisFacultyID = 0;
 			cin >> thisFacultyID;
-			thisFaculty = myFacultyTree.search(thisFacultyID);
+			Faculty thisFaculty = myFacultyTree.search(thisFacultyID);
 			thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 5)
