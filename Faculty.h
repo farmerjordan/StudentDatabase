@@ -21,20 +21,9 @@ struct Faculty
 		bool operator>(const Faculty& faculty);
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6a4b4edc98f0e75f2ba691b3a52eb2ff19d74b43
-
 		int facultyID ;
 
 	private:
-<<<<<<< HEAD
-
-
-=======
-		
->>>>>>> 6a4b4edc98f0e75f2ba691b3a52eb2ff19d74b43
 		string facultyName;
 		string facultyPosition;
 		string facultyDepartment;
