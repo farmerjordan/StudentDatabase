@@ -40,7 +40,7 @@ main()
 
 		if (userSelection == 1)
 		{
-			//myStudentTree.printTree(myStudentTree.root);
+			myStudentTree.printTree(myStudentTree.root);
 			//I commented this out for the moment because more errors were showing up and it was cluttering up the console
 		}
 		if (userSelection == 2)
