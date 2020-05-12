@@ -4,8 +4,6 @@ using namespace std;
 
 #include "Student.h"
 
-//student functionality
-//constructor
 
 Student::Student(){
 	studentID = 0;

@@ -94,7 +94,7 @@ main()
 			}else
 			{
 				cout << "This student does not have an advisor assigned. Please assign an advisor." << endl;
-			} 
+			}
 		}
 		if (userSelection == 6)
 		{
@@ -196,7 +196,7 @@ main()
 
 			//create a faculty from the info
 			//new Faculty thisFaculty;
-			Faculty thisFaculty =  Student(thisFacultyID, thisFacultyName, thisFacultyPostion, thisFacultyDepartment /*, empty studentlist*/)
+			Faculty thisFaculty =  Student(thisFacultyID, thisFacultyName, thisFacultyPosition, thisFacultyDepartment /*, empty studentlist*/)
 
 			//add faculty to myFacultyTree
 			myFacultyTree.insert(thisFaculty);
