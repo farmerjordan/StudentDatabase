@@ -71,7 +71,7 @@ main()
 			//this will find the student object
 			Student thisStudent = myStudentTree.search(thisStudentID);
 			//retrieve advisor ID from student object
-			int advisorID = thisStudent.getAdvisorID();
+			int advisorID = thisStudent.GetAdvisorID();
 			//find faculty object
 			Faculty thisFaculty = myFacultyTree.search(advisorID);
 			//print the actual info
