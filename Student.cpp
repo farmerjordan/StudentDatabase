@@ -70,7 +70,7 @@ void Student::GetStudentAdvisorInfo(int thisStudentID)
 	//Return all info about that specific faculty
 }
 
-void Student::UpdateAdvisorID(int thisAdvisorID)
+void Student::UpdateAdvisorID(int thisStudentID, int thisAdvisorID)
 {
 	advisorID = thisAdvisorID;
 	//Update the node in the tree, must also update in faculty tree to remove student from one advisor and move to another

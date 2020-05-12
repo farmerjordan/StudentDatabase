@@ -3,7 +3,7 @@
 using namespace std;
 
 // student class
-class Student
+struct Student
 {
 	public:
 		Student();
@@ -18,7 +18,7 @@ class Student
 		bool operator<(const Student& student1, const Student& student2);
 		bool operator>(const Student& student1, const Student& student2);
 
-	private:
+
 		int studentID;
 		string studentName;
 		string studentGrade;

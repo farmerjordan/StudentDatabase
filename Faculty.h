@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Faculty
+struct Faculty
 {
 	public:
 		Faculty();
@@ -19,7 +19,7 @@ class Faculty
 		bool operator<(const Faculty& faculty1, const Faculty& faculty2);
 		bool operator>(const Faculty& faculty1, const Faculty& faculty2);
 
-	private:
+
 		int facultyID ;
 		string facultyName;
 		string facultyPosition;
