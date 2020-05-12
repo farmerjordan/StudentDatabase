@@ -48,7 +48,7 @@ bool operator>(const Student& student1, const Student& student2)
 
 
 //Number 3 - Find and display student information given the students ID
-void Student::PrintStudentInfo(int thisStudentID) //I think we might need to call get methods here, but I am not sure until we try to run the whole program
+void Student::PrintStudentInfo() //I think we might need to call get methods here, but I am not sure until we try to run the whole program
 {
 	cout << "Student ID : " << studentID << endl;
 	cout << "Name : " << studentName << endl;

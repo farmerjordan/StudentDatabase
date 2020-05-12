@@ -5,8 +5,10 @@ using namespace std;
 struct Faculty
 {
 	public:
+	
 		Faculty();
 		~Faculty();
+		int facultyID;
 		Faculty(int facultyID, string name, string position, string department /*, alistsomehowofallofthestudents*/); //Overload initialize a new faculty advisor
 
 		void PrintFacultyInfo(int facultyID); //Number 4 - Find and display faculty information given the faculty ID
@@ -19,8 +21,13 @@ struct Faculty
 		bool operator<(const Faculty& faculty1, const Faculty& faculty2);
 		bool operator>(const Faculty& faculty1, const Faculty& faculty2);
 
+<<<<<<< HEAD
 
 		int facultyID ;
+=======
+	private:
+		
+>>>>>>> 0ff6ee6551328cbd83cb2204ff0e5e345f1e5825
 		string facultyName;
 		string facultyPosition;
 		string facultyDepartment;
