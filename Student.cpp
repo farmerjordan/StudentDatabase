@@ -70,6 +70,11 @@ void Student::GetStudentAdvisorInfo(int thisStudentID)
 	//Return all info about that specific faculty
 }
 
+void Student::GetAdvisorID(int thisStudentID)
+{
+	return advisorID;
+}
+
 void Student::UpdateAdvisorID(int thisStudentID, int thisAdvisorID)
 {
 	advisorID = thisAdvisorID;
