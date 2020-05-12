@@ -50,26 +50,32 @@ main()
 			cout << "What is the ID of the student whose information you would like to retrieve?" << endl;
 			int thisStudentID = 0;
 			cin >> thisStudentID;
-			myStudentTree.PrintStudentInfo(thisStudentID);
-			//thisStudent.PrintStudentInfo();//im not 100% sure im calling this right
+			Student thisStudent = myStudentTree.search(thisStudentID);
+			thisStudent.PrintStudentInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 4)
 		{
 			cout<<"what is the ID of the faculty whose information you would like to retrieve";
 			int thisFacultyID = 0;
 			cin >> thisFacultyID;
-			myFacultyTree.PrintFacultyInfo(thisFacultyID);
-			//thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
+			thisFaculty = myFacultyTree.search(thisFacultyID);
+			thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 5)
 		{
 			cout<< "what is the ID of the student whose advisor information you would like to retrieve";
 			int thisStudentID;
 			cin >> thisStudentID; //I'm kinda confused by what you have being done below so I commented it out bc I think the below line should take care of it all
-			myStudentTree.GetStudentAdvisorInfo(thisStudentID);
-			//int advisorID = thisStudent.getAdvisorID();
-			//Faculty thisFaculty = myFacultyTree.search(advisorID);
-			//thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
+			
+			
+			//this will find the student object
+			Student thisStudent = myStudentTree.search(thisStudentID);
+			//retrieve advisor ID from student object
+			int advisorID = thisStudent.getAdvisorID();
+			//find faculty object
+			Faculty thisFaculty = myFacultyTree.search(advisorID);
+			//print the actual info
+			thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 6)
 		{
@@ -112,7 +118,8 @@ main()
 			myStudentTree.insert(thisStudent);
 
       //Idk whatthis part is for either rn
-			//Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
+	  //this is to be able to find their advisor so we can add the student ID to the advisors list of student IDs
+			Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
 
 			//still need to add this student to this advisors list of students
 

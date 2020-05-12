@@ -5,8 +5,10 @@ using namespace std;
 class Faculty
 {
 	public:
+	
 		Faculty();
 		~Faculty();
+		int facultyID;
 		Faculty(int facultyID, string name, string position, string department /*, alistsomehowofallofthestudents*/); //Overload initialize a new faculty advisor
 
 		void PrintFacultyInfo(int facultyID); //Number 4 - Find and display faculty information given the faculty ID
@@ -20,7 +22,7 @@ class Faculty
 		bool operator>(const Faculty& faculty1, const Faculty& faculty2);
 
 	private:
-		int facultyID ;
+		
 		string facultyName;
 		string facultyPosition;
 		string facultyDepartment;
