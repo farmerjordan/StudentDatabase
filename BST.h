@@ -30,7 +30,7 @@ class BST
       }
 
       printTree(node->left);
-      cout << node->data << endl;
+      cout << node->data.id << endl;
       printTree(node->right);
     }
 

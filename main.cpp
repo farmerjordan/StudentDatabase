@@ -39,11 +39,14 @@ main()
 
 		if (userSelection == 1)
 		{
-			//myStudentTree.printInOrder(/*it says that we have to pass in a node? im not sure how to do that*/)
+			//myStudentTree.printInOrder(myStudentTree.root);
+			//I commented this out for the moment because more errors were showing up and it was cluttering up the console
 		}
 		if (userSelection == 2)
 		{
-			//myFacultyTree.printInOrder(/*it says that we have to pass in a node? im not sure how to do that*/)
+			//myFacultyTree.printInOrder(myFacultyTree.root);
+			//I commented this out for the moment because more errors were showing up and it was cluttering up the console
+
 		}
 		if (userSelection == 3)
 		{
@@ -57,9 +60,6 @@ main()
 			{
 				myStudentTree.getNode(dummy)->data.PrintStudentInfo();
 			}
-
-			//Student thisStudent = myStudentTree.search(thisStudentID);
-			//thisStudent.PrintStudentInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 4)
 		{
@@ -73,13 +73,10 @@ main()
 			{
 				myFacultyTree.getNode(dummy)->data.PrintFacultyInfo();
 			}
-
-			//Faculty thisFaculty = myFacultyTree.search(thisFacultyID);
-			//thisFaculty.PrintFacultyInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 5)
 		{
-			cout<< "What is the ID of the student whose advisor information you would like to retrieve";
+			cout<< "What is the ID of the student whose advisor information you would like to retrieve?";
 			int thisStudentID;
 			cin >> thisStudentID; //I'm kinda confused by what you have being done below so I commented it out bc I think the below line should take care of it all
 
@@ -95,7 +92,7 @@ main()
 		}
 		if (userSelection == 6)
 		{
-			cout<< "what is the ID of the faculty whose advisees information you would like to retrieve";
+			cout<< "What is the ID of the faculty whose advisees information you would like to retrieve?";
 			int thisStudentID;
 			cin >> thisStudentID;
 			//get advisee IDs
@@ -103,51 +100,57 @@ main()
 				//{
 					//print
 		}
-		if (userSelection == 7)
+		if (userSelection == 7) //Add error checking for if student ID already exists
 		{
 			//get input info
-			cout<<"you have selected to create a student, please enter their information when prompted."<<endl;
-			cout<<"Student ID# : "<<endl;
+			cout << "You have selected to create a student, please enter their information when prompted." << endl;
+			cout << "Student ID : " << endl;
 			int thisStudentID;
 			cin >> thisStudentID;
-			cout<< "/n"<<"Student Name : "<<endl;
+			cout << "/n" << "Student Name : " << endl;
 			string thisStudentName;
 			cin >> thisStudentName;
-			cout<< "/n"<<"Student year/standing : "<<endl;
+			cout << "/n" << "Student year/standing : " << endl;
 			string thisGrade;
 			cin >> thisGrade;
-			cout<< "/n"<<"Student Major : "<<endl;
+			cout << "/n" << "Student Major : " << endl;
 			string thisMajor;
 			cin >> thisMajor;
-			cout<< "/n"<<"Student GPA : "<<endl;
+			cout << "/n" << "Student GPA : " << endl;
 			int thisGPA;
 			cin >> thisGPA;
-			cout<< "/n"<<"Students advisor ID (if unknown enter -1) : "<<endl;
+			cout << "/n" << "Students advisor ID : " << endl;
 			string thisAdvisorID;
 			cin >> thisAdvisorID;
 
 			//create a student from the info
-			//new Student thisStudent;
-			Student thisStudent =  Student(thisStudentID, thisName, thisGrade, thisMajor, thisGPA, thisAdvisorID);
+			Student newStudent =  Student(thisStudentID, thisStudentName, thisGrade, thisMajor, thisGPA, thisAdvisorID);
 
 			//add student to myStudentTree
-			myStudentTree.insert(thisStudent);
+			myStudentTree.insert(newStudent);
 
-      //Idk whatthis part is for either rn
-	  //this is to be able to find their advisor so we can add the student ID to the advisors list of student IDs
-			Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
 
-			//still need to add this student to this advisors list of students
+		  //Need to add the student to the list of ID's for the specified faculty advisor
+			//Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
+
+
 
 		}
-		if (userSelection == 8)
+		if (userSelection == 8) //Need to remove the student from a faculty list
 		{
 			//delete a student given the ID
-
-			cout<<"What is the ID of the student you would like to delete : "<<endl;
+			cout<<"Enter the ID of the student you would like to delete : "<<endl;
 			string thisStudentID;
 			cin >> thisStudentID;
-			myStudentTree.deleteNode(thisStudentID);
+			Student dummy = Student();
+			dummy.SetStudentID(thisStudentID);
+			if(myStudentTree.search(dummy) == true)
+			{
+				myStudentTree.deleteNode(dummy);
+			}else
+			{
+				cout << "A student does not exist with that ID. " << endl;
+			}
 		}
 		if (userSelection == 9) //Add a new faculty member.
 		{
@@ -199,22 +202,31 @@ main()
 		}
 		if (userSelection == 10)
 		{
-			cout<< "what is the ID of the faculty you would like deleted?";
+			cout<< "What is the ID of the faculty you would like deleted?";
 			int thisFacultyID;
 			cin >> thisFacultyID;
-			myFacultyTree.deleteNode(thisFacultyID);
+
+			Faculty dummy = Faculty();
+			dummy.SetFacultyID(thisFacultyID);
+			if(myFacultyTree.search(dummy) == true)
+			{
+				myFacultyTree.deleteNode(dummy);
+			}else
+			{
+				cout << "A faculty does not exist with that ID. " << endl;
+			}
 		}
 		if (userSelection == 11)
 		{
-			cout<< "what is the ID of the Student whose advisor you need updated?";
+			cout<< "What is the ID of the student whose advisor you would like to change?";
 			int thisStudentID;
 			cin >> thisStudentID;
 
-			cout<< "what is the ID of their advisor (faculty)?";
+			cout<< "What is the ID of their new advisor (faculty)?";
 			int thisFacultyID;
 			cin >> thisFacultyID;
 
-			myStudentTree.UpdateAdvisorID(thisFacultyID);
+		//	myStudentTree.UpdateAdvisorID(thisFacultyID);
 
 			//also need to remove from list of advisees of old advisor and add to new advisor
 		}
@@ -228,7 +240,9 @@ main()
 		}
 		if (userSelection == 14)
 		{
-			break;
+			//Should write to the file here before we close the program entirely
+			//break;
+			exit(0);
 		}
 	}
 	//right here we have to figure out how to write to the disk
