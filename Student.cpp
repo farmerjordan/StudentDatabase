@@ -24,6 +24,11 @@ Student::Student(int thisStudentID, string thisName, string thisGrade, string th
 	advisorID = thisAdvisorID;
 }
 
+Student::~Student()
+{
+	
+}
+
 bool operator==(const Student& student1, const Student& student2)
 {
 		return(student1.studentID ==  student2.studentID);
