@@ -123,7 +123,7 @@ main()
 			string thisMajor;
 			cin >> thisMajor;
 			cout << "/n" << "Student GPA : " << endl;
-			int thisGPA;
+			double thisGPA;
 			cin >> thisGPA;
 			cout << "/n" << "Students advisor ID : " << endl;
 			string thisAdvisorID;
@@ -196,7 +196,7 @@ main()
 
 			//create a faculty from the info
 			//new Faculty thisFaculty;
-			Faculty thisFaculty =  Student(thisFacultyID, thisFacultyName, thisFacultyPosition, thisFacultyDepartment /*, empty studentlist*/)
+			//Faculty thisFaculty =  Faculty(thisFacultyID, thisFacultyName, thisFacultyPosition, thisFacultyDepartment /*, empty studentlist*/)
 
 			//add faculty to myFacultyTree
 			myFacultyTree.insert(thisFaculty);
