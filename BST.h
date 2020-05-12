@@ -147,6 +147,25 @@ class BST
       }
     }
 
+    TreeNode<T>* getNode(T node)
+    {
+      TreeNode<T> *curr = root;
+
+      while(curr->data != node)
+      {
+        if(node < curr->data)
+        {
+          curr = curr->left;
+        }else
+        {
+          curr = curr->right;
+        }
+      }
+
+
+      return curr;
+    }
+
     bool deleteNode(T nodeValue)
     {
       if(isEmpty()) //Can't delete a node from an empty tree, nothing to delete

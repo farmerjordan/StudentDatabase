@@ -64,13 +64,18 @@ int Student::GetStudentID() //Not sure if this method is particularly needed
 	return studentID;
 }
 
+void Student::SetStudentID(int thisStudentID)
+{
+	studentID = thisStudentID;
+}
+
 //Number 5 - Given a student's ID, print the name and info of their faculty advisor
 void Student::GetStudentAdvisorInfo(int thisStudentID)
 {
 	//Return all info about that specific faculty
 }
 
-void Student::GetAdvisorID(int thisStudentID)
+int Student::GetAdvisorID(int thisStudentID)
 {
 	return advisorID;
 }

@@ -50,8 +50,15 @@ main()
 			cout << "What is the ID of the student whose information you would like to retrieve?" << endl;
 			int thisStudentID = 0;
 			cin >> thisStudentID;
-			Student thisStudent = myStudentTree.search(thisStudentID);
-			thisStudent.PrintStudentInfo();//im not 100% sure im calling this right
+
+			Student dummy = Student();
+			dummy.SetStudentID(thisStudentID);
+			if(myStudentTree.search(dummy) == true){
+				myStudentTree.getNode(dummy)->data.PrintStudentInfo();
+			}
+
+			//Student thisStudent = myStudentTree.search(thisStudentID);
+			//thisStudent.PrintStudentInfo();//im not 100% sure im calling this right
 		}
 		if (userSelection == 4)
 		{
