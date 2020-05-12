@@ -16,6 +16,109 @@ main()
 
 	BST<Student> myStudentTree; //instance of BST to make a tree of students
 	BST<Faculty> myFacultyTree; //instance of BST to make a tree of faculty
+
+	string StudentFile;
+	string FacultyFile;
+	//open the files we want to read and call methods to read them
+	ifstream studentFile;
+	studentFile.open("studentTable.txt");
+	if (studentFile)
+	{
+		string currString;
+		//studentReadIn(studentFile);
+		int linecount = 0;
+		int tempID;
+		string tempName;
+		string tempGrade;
+		string tempMajor;
+		double tempGPA;
+		int tempAdvisorID;
+		while(getline(studentFile, currString))
+		{
+			linecount +=1;
+			if (linecount == 1)
+			{
+				tempID = stoi(currString);
+			}
+			if (linecount == 2)
+			{
+				tempName = currString;
+			}
+			if (linecount == 3)
+			{
+				tempGrade = currString;
+			}
+			if (linecount == 4)
+			{
+				tempMajor = currString;
+			}
+			if (linecount == 5)
+			{
+				tempGPA = stoi(currString);
+			}
+			if (linecount == 6)
+			{
+				tempAdvisorID = stoi(currString);
+
+				Student thisStudent = Student(tempID, tempName, tempGrade, tempMajor, tempGPA, tempAdvisorID);
+				myStudentTree.insert(thisStudent);
+				linecount = 0;
+			}
+		}
+	}
+	ifstream facultyFile;
+	facultyFile.open("facultyTable.txt");
+	if (facultyFile)
+	{
+		//facultyReadIn(studentFile);
+		string currString;
+		int linecount = 1;
+		int tempID = 0;
+		string tempName = NULL;
+		string tempPosition = NULL;
+		string tempDepartment = NULL;
+		DoublyLinkedList<int> tempAdvisees;
+		Faculty thisFaculty;
+
+		while(getline(facultyFile, currString))
+		{
+
+			if (linecount == 1)
+			{
+				linecount +=1;
+				tempID = stoi(currString);
+			}
+			if (linecount == 2)
+			{
+				linecount +=1;
+				tempName = currString;
+			}
+			if (linecount == 3)
+			{
+				linecount +=1;
+				tempPosition = currString;
+			}
+			if (linecount == 4)
+			{
+				linecount +=1;
+				tempDepartment = currString;
+				Faculty thisFaculty = Faculty(tempID, tempName, tempPosition, tempDepartment);
+			}
+			if (linecount == 5)
+			{
+				if (currString == "---")
+				{
+					linecount =1;
+					myFacultyTree.insert(thisFaculty);
+				}
+				else
+				{
+					thisFaculty.AddAdvisee(stoi(currString));
+				}
+			}
+		}
+	}
+
 	bool analysis = true;
 	while (analysis == true)
 	{
