@@ -31,22 +31,51 @@ Student::~Student()
 
 bool operator==(const Student& student1, const Student& student2)
 {
-		return(student1.studentID ==  student2.studentID);
+	int s1 = student1.studentID;
+	int s2 = student2.studentID;
+	if (s1 == s2)
+	{
+		return true;
+	}
+	return false;
+		
+		//return true/*(student1.studentID ==  student2.studentID)*/;
 }
 
 bool operator!=(const Student& student1, const Student& student2)
 {
-	return(student1.studentID != student2.studentID);
+	int s1 = student1.studentID;
+	int s2 = student2.studentID;
+	if (s1 != s2)
+	{
+		return true;
+	}
+	return false;
+	//return true/*(student1.studentID != student2.studentID)*/;
 }
 
 bool operator<(const Student& student1, const Student& student2)
 {
-	return(student1.studentID < student2.studentID);
+	int s1 = student1.studentID;
+	int s2 = student2.studentID;
+	if (s1 < s2)
+	{
+		return true;
+	}
+	return false;
 }
 
 bool operator>(const Student& student1, const Student& student2)
 {
-	return(student1.studentID > student2.studentID);
+	int s1 = student1.studentID;
+	int s2 = student2.studentID;
+	if (s1 > s2)
+	{
+		return true;
+	}
+	return false;
+	
+	//return true/*(student1.studentID > student2.studentID)*/;
 }
 
 
