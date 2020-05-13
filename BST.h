@@ -39,9 +39,9 @@ class BST
       //TreeNode<T>* curr = node;
       if(node != NULL)
       {
-        printTree(node->left);
+        printTreeToFile(node->left, filename);
         myfile >> node->data << endl;
-        printTree(node->right);
+        printTreeToFile(node->right, filename);
       }
     }
 
