@@ -402,7 +402,20 @@ main()
 		}
 		if (userSelection == 12)
 		{
-			//
+			cout << "What is the ID of the advisor (faculty) that you would like to remove a student from?" << endl;
+			int thisFacultyID;
+			cin >> thisFacultyID;
+
+			cout << "What is the ID of the student you would like to remove?" << endl;
+			int thisStudentID;
+			cin >> thisStudentID;
+
+			Faculty dummy = Faculty();
+			dummy.SetFacultyID(thisFacultyID);
+			if(myFacultyTree.search(dummy) == true)
+			{
+				myFacultyTree.getNode(dummy)->data.RemoveAdvisee(thisStudentID);
+			}
 		}
 		if (userSelection == 13)
 		{
