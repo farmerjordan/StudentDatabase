@@ -203,12 +203,30 @@ main()
 		if (userSelection == 6)
 		{
 			cout<< "What is the ID of the faculty whose advisees information you would like to retrieve?";
-			int thisStudentID;
-			cin >> thisStudentID;
-			//get advisee IDs
-			//while(adviseeCount != 0)
-				//{
-					//print
+			int thisFacultyID;
+			cin >> thisFacultyID;
+
+			Faculty dummy = Faculty();
+			dummy.SetFacultyID(thisFacultyID);
+			if(myFacultyTree.search(dummy) == true)
+			{
+				DoublyLinkedList<int>* tempAdvisees = myFacultyTree.getNode(dummy)->data.advisees;
+
+				ListNode<int> *temp = tempAdvisees->front;
+
+				while(temp != NULL)
+				{
+
+					Student studDummy = Student();
+					studDummy.SetStudentID(temp->data);
+					if(myStudentTree.search(studDummy) == true)
+					{
+						myStudentTree.getNode(studDummy)->data.PrintStudentInfo();
+					}
+					temp = temp->next;
+				}
+			}
+
 		}
 		if (userSelection == 7) //Add error checking for if student ID already exists
 		{
