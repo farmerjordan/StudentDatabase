@@ -427,7 +427,7 @@ main()
 		if (userSelection == 14)
 		{
 			myStudentTree.printTreeToFile(myStudentTree.root, "studentTable");
-			myFacultyTree.printTreeToFile(myFaculty.root, "facultyTable");
+			myFacultyTree.printTreeToFile(myFacultyTree.root, "facultyTable");
 			//Should write to the file here before we close the program entirely
 			//break;
 			exit(0);
