@@ -13,6 +13,8 @@ using namespace std;
 
 void doAction(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int historic, int actionCount)
 {
+	cout<<historic;
+	cout<<actionCount;
 	actionCount +=1;
 	ifstream studentFile;
 	ifstream facultyFile;
@@ -46,7 +48,7 @@ void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hi
 	{
 		string facultyFileName = "historicFacultyTree" + to_string(actionCount%5) + ".txt";
 		facultyFile.open(facultyFileName);
-		string studentFileName = "historicFacultyTree" + to_string(actionCount%5) + ".txt";
+		string studentFileName = "historicStudentTree" + to_string(actionCount%5) + ".txt";
 		studentFile.open(studentFileName);
 	}
 	if (studentFile)
