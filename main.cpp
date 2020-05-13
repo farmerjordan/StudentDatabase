@@ -118,7 +118,9 @@ main()
 			}
 		}
 	}
-
+	if( remove( "facultyTable.txt" ) != 0 )
+	{}
+	if( remove( "studentTable.txt" != 0 )
 	bool analysis = true;
 	while (analysis == true)
 	{

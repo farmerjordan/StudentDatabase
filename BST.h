@@ -31,8 +31,6 @@ class BST
         cout << node->data << endl;
         printTree(node->right);
       }
-
-
     }
 
 
