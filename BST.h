@@ -32,6 +32,18 @@ class BST
         printTree(node->right);
       }
     }
+	void printTreeToFile(TreeNode<T> *node, string filename)
+    {
+		ofstream myfile;
+		myfile.open(filename);
+      //TreeNode<T>* curr = node;
+      if(node != NULL)
+      {
+        printTree(node->left);
+        myfile >> node->data << endl;
+        printTree(node->right);
+      }
+    }
 
 
     TreeNode<T>* getMax()

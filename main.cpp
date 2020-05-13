@@ -118,9 +118,10 @@ main()
 			}
 		}
 	}
-	if( remove( "facultyTable.txt" ) != 0 )
+	/*if( remove( "facultyTable.txt" ) != 0 )
 	{}
-	if( remove( "studentTable.txt" != 0 )
+	if( remove( "studentTable.txt" != 0 ))
+	{}*/
 	bool analysis = true;
 	while (analysis == true)
 	{
@@ -425,9 +426,12 @@ main()
 		}
 		if (userSelection == 14)
 		{
+			myStudentTree.printTreeToFile(myStudentTree.root, "studentTable");
+			myFacultyTree.printTreeToFile(myFaculty.root, "facultyTable");
 			//Should write to the file here before we close the program entirely
 			//break;
 			exit(0);
+			analysis = false;
 		}
 	}
 	//right here we have to figure out how to write to the disk

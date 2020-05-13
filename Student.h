@@ -21,6 +21,7 @@ struct Student
 		bool operator>(const Student& student);
 		bool operator<(const Student& student);
 		friend std::ostream& operator<< (std::ostream& out, const Student& student);
+		friend std::ostream& operator>> (std::ostream& out, const Student& student);
 
 
 		int studentID;

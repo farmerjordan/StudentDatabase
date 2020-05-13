@@ -50,6 +50,11 @@ std::ostream& operator<< (std::ostream& out, const Faculty& faculty)
 		out << "ID: " << faculty.facultyID << "\n" << "Name: " << faculty.facultyName << "\n" << "Position: " << faculty.facultyPosition << "\n" << "Department: " << faculty.facultyDepartment << "\n" << " " << endl;
     return out;
 }
+std::ostream& operator>> (std::ostream& out, const Faculty& faculty)
+{
+		out << faculty.facultyID << "\n" << faculty.facultyName << "\n"  << faculty.facultyPosition << "\n" << faculty.facultyDepartment << endl;
+    return out;
+}
 
 
 //Number 4 - Find and display faculty information given the faculty ID

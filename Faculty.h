@@ -22,6 +22,7 @@ struct Faculty
 		bool operator>(const Faculty& faculty);
 		bool operator<(const Faculty& faculty);
 		friend std::ostream& operator<< (std::ostream& out, const Faculty& faculty);
+		friend std::ostream& operator>> (std::ostream& out, const Faculty& faculty);
 
 
 		int facultyID ;
