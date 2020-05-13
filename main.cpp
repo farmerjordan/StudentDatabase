@@ -21,14 +21,14 @@ void doAction(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hist
 	//write to files that are are named historic name
 	string facultyFileName = "historicFacultyTree" + to_string(actionCount%5 + 1) + ".txt";
 	facultyFile.open(facultyFileName);
-	
+
 	string studentFileName = "historicStudentTree" + to_string(actionCount%5 + 1) + ".txt";
 	studentFile.open(studentFileName);
-	
+
 	myStudentTree.printTreeToFile(myStudentTree.root, studentFileName);
 	myFacultyTree.printTreeToFile(myFacultyTree.root, facultyFileName);
-	
-	
+
+
 }
 void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int historic, int actionCount)
 {
@@ -39,9 +39,9 @@ void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hi
 	if (historic==0 && actionCount == 0)
 	{
 	//open the files we want to read and call methods to read them
-		
+
 		studentFile.open("studentTable.txt");
-	
+
 		facultyFile.open("facultyTable.txt");
 	}
 	if (historic == actionCount%5)
@@ -154,7 +154,7 @@ main()
 	BST<Student> myStudentTree; //instance of BST to make a tree of students
 	BST<Faculty> myFacultyTree; //instance of BST to make a tree of faculty
 
-	
+
 	/*if( remove( "facultyTable.txt" ) != 0 )
 	{}
 	if( remove( "studentTable.txt" != 0 ))
@@ -167,6 +167,7 @@ main()
 	while (analysis == true)
 	{
 		actionCount+=1;
+		historic+=1;
 		cout << "Menu - Please type the number of the function you would like to complete " << endl;
 		cout << "1 -- Print all students and their info" << endl;
 		cout << "2 -- Print all faculty and their info" << endl;
@@ -189,7 +190,7 @@ main()
 		if (userSelection == 1)
 		{
 			myStudentTree.printTree(myStudentTree.root);
-			
+
 			//I commented this out for the moment because more errors were showing up and it was cluttering up the console
 		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
@@ -283,7 +284,7 @@ main()
 		if (userSelection == 7) //Add error checking for if student ID already exists
 		{
 			//get input info
-			cout << "You have selected to create a student, please enter their information when prompted." << endl;
+			cout << "You have selected to create a student, please enter their information when prompted. (Use an underscore if providing more than one word.)" << endl;
 			cout << "Student ID : " << endl;
 			int thisStudentID;
 			cin >> thisStudentID;
@@ -351,7 +352,7 @@ main()
 			//still working on this but gotta go do stuff with my fam
 
 			//get input info
-			cout << "You have selected to create a new faculty member, please enter their information when prompted." << endl;
+			cout << "You have selected to create a new faculty member, please enter their information when prompted. (Use an underscore if you are providing more than one word.)" << endl;
 			cout << "Faculty ID : " << endl;
 			int thisFacultyID;
 			cin >> thisFacultyID;
@@ -448,7 +449,7 @@ main()
 				{
 					myFacultyTree.getNode(newDummyFac)->data.AddAdvisee(thisStudentID);
 				}
-				
+
 
 			}
 		doAction(myStudentTree, myFacultyTree, historic, actionCount);
@@ -460,7 +461,7 @@ main()
 		}
 		if (userSelection == 12)
 		{
-			
+
 			cout << "What is the ID of the advisor (faculty) that you would like to remove a student from?" << endl;
 			int thisFacultyID;
 			cin >> thisFacultyID;
