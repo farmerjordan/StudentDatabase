@@ -216,6 +216,74 @@ main()
 	BST<Faculty> myFacultyTree; //instance of BST to make a tree of faculty
 
 
+
+    string StudentFile;
+	string FacultyFile;
+	ifstream facultyFile;
+	ifstream studentFile;
+
+	string currString;
+	
+	studentFile.open("studentTable.txt");
+
+	facultyFile.open("facultyTable.txt");
+	
+	while(studentFile)
+	{
+		//studentReadIn(studentFile);
+		int linecount = 0;
+		int tempID;
+		string tempName;
+		string tempGrade;
+		string tempMajor;
+		double tempGPA;
+		int tempAdvisorID;
+		while(getline(studentFile, currString) && currString != "")
+		{
+			linecount +=1;
+			if (linecount == 1)
+			{
+				cout << "linecount == 1" << endl;
+				tempID = stoi(currString);
+			}
+			if (linecount == 2)
+			{
+				cout << "linecount == 2" << endl;
+				tempName = currString;
+			}
+			if (linecount == 3)
+			{
+				cout << "linecount == 3" << endl;
+				tempGrade = currString;
+			}
+			if (linecount == 4)
+			{
+				cout << "linecount == 4" << endl;
+				tempMajor = currString;
+			}
+			if (linecount == 5)
+			{
+				cout << "linecount == 5" << endl;
+				tempGPA = stoi(currString);
+			}
+			if (linecount == 6)
+			{
+				cout << "linecount == 6" << endl;
+				tempAdvisorID = stoi(currString);
+				cout << "right before student object" << endl;
+
+				Student thisStudent = Student(tempID, tempName, tempGrade, tempMajor, tempGPA, tempAdvisorID);
+				myStudentTree.insert(thisStudent);
+				linecount = 0;
+
+				cout << "adds student object" << endl;
+			}
+		}
+	}
+
+
+
+
 	/*if( remove( "facultyTable.txt" ) != 0 )
 	{}
 	if( remove( "studentTable.txt" != 0 ))
