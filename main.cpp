@@ -66,7 +66,7 @@ void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hi
 		string tempMajor;
 		double tempGPA;
 		int tempAdvisorID;
-		while(getline(studentFile, currString))
+		while(getline(studentFile, currString) && currString != "")
 		{
 			linecount +=1;
 			if (linecount == 1)
@@ -97,7 +97,7 @@ void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hi
 			if (linecount == 6)
 			{
 				cout << "linecount == 6" << endl;
-				//tempAdvisorID = stoi(currString);
+				tempAdvisorID = stoi(currString);
 				cout << "right before student object" << endl;
 
 				Student thisStudent = Student(tempID, tempName, tempGrade, tempMajor, tempGPA, tempAdvisorID);

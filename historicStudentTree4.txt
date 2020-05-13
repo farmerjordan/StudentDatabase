@@ -1,6 +1,7 @@
-234
-rose
-senior
+2289033
+jordan
+junior
 chem
-3.3
-Advisor: 123
+3.5
+123
+
