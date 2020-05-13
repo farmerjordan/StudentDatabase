@@ -11,17 +11,44 @@ using namespace std;
 #include "ListNode.h"
 #include "TreeNode.h"
 
-main()
+void doAction(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int historic, int actionCount)
 {
-
-	BST<Student> myStudentTree; //instance of BST to make a tree of students
-	BST<Faculty> myFacultyTree; //instance of BST to make a tree of faculty
-
+	actionCount +=1;
+	ifstream studentFile;
+	ifstream facultyFile;
+	//write to files that are are named historic name
+	string facultyFileName = "historicFacultyTree" + to_string(actionCount%5 + 1) + ".txt";
+	facultyFile.open(facultyFileName);
+	
+	string studentFileName = "historicStudentTree" + to_string(actionCount%5 + 1) + ".txt";
+	studentFile.open(studentFileName);
+	
+	myStudentTree.printTreeToFile(myStudentTree.root, studentFileName);
+	myFacultyTree.printTreeToFile(myFacultyTree.root, facultyFileName);
+	
+	
+}
+void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int historic, int actionCount)
+{
 	string StudentFile;
 	string FacultyFile;
-	//open the files we want to read and call methods to read them
+	ifstream facultyFile;
 	ifstream studentFile;
-	studentFile.open("studentTable.txt");
+	if (historic==0 && actionCount == 0)
+	{
+	//open the files we want to read and call methods to read them
+		
+		studentFile.open("studentTable.txt");
+	
+		facultyFile.open("facultyTable.txt");
+	}
+	if (historic == actionCount%5)
+	{
+		string facultyFileName = "historicFacultyTree" + to_string(actionCount%5) + ".txt";
+		facultyFile.open(facultyFileName);
+		string studentFileName = "historicFacultyTree" + to_string(actionCount%5) + ".txt";
+		studentFile.open(studentFileName);
+	}
 	if (studentFile)
 	{
 		string currString;
@@ -66,7 +93,6 @@ main()
 			}
 		}
 	}
-	ifstream facultyFile;
 	facultyFile.open("facultyTable.txt");
 	if (facultyFile)
 	{
@@ -118,13 +144,27 @@ main()
 			}
 		}
 	}
+}
+
+main()
+{
+
+	BST<Student> myStudentTree; //instance of BST to make a tree of students
+	BST<Faculty> myFacultyTree; //instance of BST to make a tree of faculty
+
+	
 	/*if( remove( "facultyTable.txt" ) != 0 )
 	{}
 	if( remove( "studentTable.txt" != 0 ))
 	{}*/
+	//count what action number were on
+	int actionCount = 0;
+	int historic = 0;
 	bool analysis = true;
+	recallInfo(myStudentTree, myFacultyTree, historic, actionCount);
 	while (analysis == true)
 	{
+		actionCount+=1;
 		cout << "Menu - Please type the number of the function you would like to complete " << endl;
 		cout << "1 -- Print all students and their info" << endl;
 		cout << "2 -- Print all faculty and their info" << endl;
@@ -147,13 +187,16 @@ main()
 		if (userSelection == 1)
 		{
 			myStudentTree.printTree(myStudentTree.root);
+			
 			//I commented this out for the moment because more errors were showing up and it was cluttering up the console
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 2)
 		{
 			myFacultyTree.printTree(myFacultyTree.root);
 			//I commented this out for the moment because more errors were showing up and it was cluttering up the console
 
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 3)
 		{
@@ -167,6 +210,7 @@ main()
 			{
 				myStudentTree.getNode(dummy)->data.PrintStudentInfo();
 			}
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 4)
 		{
@@ -180,6 +224,7 @@ main()
 			{
 				myFacultyTree.getNode(dummy)->data.PrintFacultyInfo();
 			}
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 5)
 		{
@@ -202,6 +247,7 @@ main()
 			{
 				cout << "This student does not have an advisor assigned. Please assign an advisor." << endl;
 			}
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 6)
 		{
@@ -230,6 +276,7 @@ main()
 				}
 			}
 
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 7) //Add error checking for if student ID already exists
 		{
@@ -267,6 +314,7 @@ main()
 				myFacultyTree.getNode(dummy)->data.AddAdvisee(thisStudentID);
 			}
 
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 8) //Need to remove the student from a faculty list
 		{
@@ -294,6 +342,7 @@ main()
 			}
 
 
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 9) //Add a new faculty member.
 		{
@@ -346,6 +395,7 @@ main()
 			}
 
 			myFacultyTree.insert(newFaculty);
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 10)
 		{
@@ -362,6 +412,7 @@ main()
 			{
 				cout << "A faculty does not exist with that ID. " << endl;
 			}
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 11)
 		{
@@ -395,8 +446,10 @@ main()
 				{
 					myFacultyTree.getNode(newDummyFac)->data.AddAdvisee(thisStudentID);
 				}
+				
 
 			}
+		doAction(myStudentTree, myFacultyTree, historic, actionCount);
 
 
 		//	myStudentTree.UpdateAdvisorID(thisFacultyID);
@@ -405,6 +458,7 @@ main()
 		}
 		if (userSelection == 12)
 		{
+			
 			cout << "What is the ID of the advisor (faculty) that you would like to remove a student from?" << endl;
 			int thisFacultyID;
 			cin >> thisFacultyID;
@@ -419,10 +473,12 @@ main()
 			{
 				myFacultyTree.getNode(dummy)->data.RemoveAdvisee(thisStudentID);
 			}
+			doAction(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 13)
 		{
-			//
+			//clear trees
+			recallInfo(myStudentTree, myFacultyTree, historic, actionCount);
 		}
 		if (userSelection == 14)
 		{
