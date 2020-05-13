@@ -41,12 +41,7 @@ void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hi
 	cout << "enters recallinfo" << endl;
 	if (historic == 0 && actionCount == 0)
 	{
-	//open the files we want to read and call methods to read them
-
-		cout << "enters if historic and actioncount = 0" << endl;
-		studentFile.open("studentTable.txt");
-
-		facultyFile.open("facultyTable.txt");
+	
 	}else
 	{
 		cout << "enters second if" << endl;
