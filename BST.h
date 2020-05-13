@@ -35,7 +35,7 @@ class BST
 	void printTreeToFile(TreeNode<T> *node, string filename)
     {
 		ofstream myfile;
-		myfile.open(filename);
+		myfile.open(filename, std::ofstream::out | std::ofstream::app);
       //TreeNode<T>* curr = node;
       if(node != NULL)
       {
