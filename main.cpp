@@ -205,12 +205,30 @@ main()
 		if (userSelection == 6)
 		{
 			cout<< "What is the ID of the faculty whose advisees information you would like to retrieve?";
-			int thisStudentID;
-			cin >> thisStudentID;
-			//get advisee IDs
-			//while(adviseeCount != 0)
-				//{
-					//print
+			int thisFacultyID;
+			cin >> thisFacultyID;
+
+			Faculty dummy = Faculty();
+			dummy.SetFacultyID(thisFacultyID);
+			if(myFacultyTree.search(dummy) == true)
+			{
+				DoublyLinkedList<int>* tempAdvisees = myFacultyTree.getNode(dummy)->data.advisees;
+
+				ListNode<int> *temp = tempAdvisees->front;
+
+				while(temp != NULL)
+				{
+
+					Student studDummy = Student();
+					studDummy.SetStudentID(temp->data);
+					if(myStudentTree.search(studDummy) == true)
+					{
+						myStudentTree.getNode(studDummy)->data.PrintStudentInfo();
+					}
+					temp = temp->next;
+				}
+			}
+
 		}
 		if (userSelection == 7) //Add error checking for if student ID already exists
 		{
@@ -219,19 +237,19 @@ main()
 			cout << "Student ID : " << endl;
 			int thisStudentID;
 			cin >> thisStudentID;
-			cout << "/n" << "Student Name : " << endl;
+			cout << "\n" << "Student Name : " << endl;
 			string thisStudentName;
 			cin >> thisStudentName;
-			cout << "/n" << "Student year/standing : " << endl;
+			cout << "\n" << "Student year/standing : " << endl;
 			string thisGrade;
 			cin >> thisGrade;
-			cout << "/n" << "Student Major : " << endl;
+			cout << "\n" << "Student Major : " << endl;
 			string thisMajor;
 			cin >> thisMajor;
-			cout << "/n" << "Student GPA : " << endl;
+			cout << "\n" << "Student GPA : " << endl;
 			double thisGPA;
 			cin >> thisGPA;
-			cout << "/n" << "Students advisor ID : " << endl;
+			cout << "\n" << "Students advisor ID : " << endl;
 			int thisAdvisorID;
 			cin >> thisAdvisorID;
 
@@ -247,10 +265,6 @@ main()
 			{
 				myFacultyTree.getNode(dummy)->data.AddAdvisee(thisStudentID);
 			}
-		  //Need to add the student to the list of ID's for the specified faculty advisor
-			//Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
-
-
 
 		}
 		if (userSelection == 8) //Need to remove the student from a faculty list
@@ -263,59 +277,74 @@ main()
 			dummy.SetStudentID(thisStudentID);
 			if(myStudentTree.search(dummy) == true)
 			{
+				int tempFacID = myStudentTree.getNode(dummy)->data.GetAdvisorID();
 				myStudentTree.deleteNode(dummy);
+
+				Faculty dummyFac = Faculty();
+				dummyFac.SetFacultyID(tempFacID);
+				if(myFacultyTree.search(dummyFac) == true)
+				{
+					myFacultyTree.getNode(dummyFac)->data.RemoveAdvisee(thisStudentID);
+				}
+
 			}else
 			{
 				cout << "A student does not exist with that ID. " << endl;
 			}
+
+
 		}
 		if (userSelection == 9) //Add a new faculty member.
 		{
 			//still working on this but gotta go do stuff with my fam
 
 			//get input info
-			cout<<"you have selected to create a faculty, please enter their information when prompted."<<endl;
-			cout<<"Faculty ID# : "<<endl;
+			cout << "You have selected to create a new faculty member, please enter their information when prompted." << endl;
+			cout << "Faculty ID : " << endl;
 			int thisFacultyID;
 			cin >> thisFacultyID;
-			cout<< "/n"<<"FacultyName : "<<endl;
+			cout << "\n" << "FacultyName : " << endl;
 			string thisFacultyName;
 			cin >> thisFacultyName;
-			cout<< "/n"<<"Faculty Position : "<<endl;
+			cout << "\n" << "Faculty Position : " << endl;
 			string thisFacultyPosition;
 			cin >> thisFacultyPosition;
-			cout<< "/n"<<"Faculty Department : "<<endl;
+			cout << "\n"<<"Faculty Department : " << endl;
 			string thisFacultyDepartment;
 			cin >> thisFacultyDepartment;
-      /* I want to wait on this part just because this would require removing an advisee from another advisor and reassigning, we should do this last I think
 
-	  // i don think we would have to remove advisees from other people but we may have to confirm that they dont belong to anyone else
+			Faculty newFaculty = Faculty(thisFacultyID, thisFacultyName, thisFacultyPosition, thisFacultyDepartment);
 
-
-			cout << "does this advisor have any advisees? y or n"<<endl;
-			bool moreAdvisees = true;
-			if (moreAdvisees)
+			cout << "Does this advisor have any advisees? Enter 'y' or 'n' "<< endl;
+			string anyAdvisees;
+			cin >> anyAdvisees;
+			bool moreAdvisees;
+			string choice = "n";
+			if(anyAdvisees == "y" || anyAdvisees == "Y")
 			{
-				cout<< "/n"<<"Student GPA : "<<endl;
-				Int thisGPA;
-				cin >> thisGPA;
-				cout<< "/n"<<"Students advisor ID
+					moreAdvisees = true;
+			}else
+			{
+				moreAdvisees = false;
+			}
+			while(moreAdvisees == true)
+			{
+				cout<< "\n"<< "Enter the students ID: " << endl;
+				int thisStudentID;
+				cin >> thisStudentID;
 
-			(if unknown enter -1) : "<<endl;
-			string thisAdvisorID;
-			cin >> thisAdvisorID;*/
+				newFaculty.AddAdvisee(thisStudentID);
 
-			//create a faculty from the info
-			//new Faculty thisFaculty;
-			//Faculty thisFaculty =  Faculty(thisFacultyID, thisFacultyName, thisFacultyPosition, thisFacultyDepartment /*, empty studentlist*/)
+				cout << "Does the faculty have more advisees? Enter 'y' or 'n' " << endl;
+				cin >> choice;
 
-			//add faculty to myFacultyTree
-			//myFacultyTree.insert(thisFaculty);
+				if(choice == "n" || choice == "N")
+				{
+					moreAdvisees = false;
+				}
+			}
 
-      //IDK what this line is for
-			//Faculty thisFaculty = myFacultyTree.search(thisAdvisorID);
-
-
+			myFacultyTree.insert(newFaculty);
 		}
 		if (userSelection == 10)
 		{
@@ -343,13 +372,52 @@ main()
 			int thisFacultyID;
 			cin >> thisFacultyID;
 
+			Student dummy = Student();
+			dummy.SetStudentID(thisStudentID);
+			if(myStudentTree.search(dummy) == true)
+			{
+				int oldAdviseeID = myStudentTree.getNode(dummy)->data.GetAdvisorID();
+				myStudentTree.getNode(dummy)->data.UpdateAdvisorID(thisFacultyID);
+
+				//Removing student from old advisee
+				Faculty dummyFac = Faculty();
+				dummyFac.SetFacultyID(oldAdviseeID);
+				if(myFacultyTree.search(dummyFac) == true)
+				{
+					myFacultyTree.getNode(dummyFac)->data.RemoveAdvisee(thisStudentID);
+				}
+
+				//Adding student to new advisee
+				Faculty newDummyFac = Faculty();
+				newDummyFac.SetFacultyID(thisFacultyID);
+				if(myFacultyTree.search(newDummyFac) == true)
+				{
+					myFacultyTree.getNode(newDummyFac)->data.AddAdvisee(thisStudentID);
+				}
+
+			}
+
+
 		//	myStudentTree.UpdateAdvisorID(thisFacultyID);
 
 			//also need to remove from list of advisees of old advisor and add to new advisor
 		}
 		if (userSelection == 12)
 		{
-			//
+			cout << "What is the ID of the advisor (faculty) that you would like to remove a student from?" << endl;
+			int thisFacultyID;
+			cin >> thisFacultyID;
+
+			cout << "What is the ID of the student you would like to remove?" << endl;
+			int thisStudentID;
+			cin >> thisStudentID;
+
+			Faculty dummy = Faculty();
+			dummy.SetFacultyID(thisFacultyID);
+			if(myFacultyTree.search(dummy) == true)
+			{
+				myFacultyTree.getNode(dummy)->data.RemoveAdvisee(thisStudentID);
+			}
 		}
 		if (userSelection == 13)
 		{

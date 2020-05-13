@@ -77,7 +77,7 @@ void Faculty::SetFacultyID(int thisFacultyID)
 //Number 6 - Given a faculty ID, print ALL the names and info of their advisees
 int Faculty::GetAdvisees(int thisFacultyID)
 {
-	//return adviseelist;
+
 }
 
 void Faculty::AddAdvisee(int adviseeID)
