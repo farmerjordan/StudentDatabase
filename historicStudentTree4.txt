@@ -1,7 +1,7 @@
 234
-rose_me
-sen
+rose
+senior
 chem
-33
-Advisor: 234
+3.3
+Advisor: 123
 

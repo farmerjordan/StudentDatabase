@@ -1,7 +1,7 @@
-123
-me
+234
+rose
 senior
 chem
 3.3
-Advisor: 0
+Advisor: 123
 
