@@ -1,7 +1,6 @@
-2289033
-jordan
-juni
+234
+rose
+senior
 chem
-3
-Advisor: 12345
-
+3.3
+Advisor: 123

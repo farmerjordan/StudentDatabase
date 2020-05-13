@@ -1,7 +1,6 @@
-2289033
-jor
-jun
+234
+rose
+senior
 chem
-3
+3.3
 Advisor: 123
-
