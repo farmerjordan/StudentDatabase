@@ -36,23 +36,84 @@ void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hi
 	string FacultyFile;
 	ifstream facultyFile;
 	ifstream studentFile;
-	if (historic==0 && actionCount == 0)
+
+	string currString;
+	cout << "enters recallinfo" << endl;
+	if (historic == 0 && actionCount == 0)
 	{
 	//open the files we want to read and call methods to read them
 
+		cout << "enters if historic and actioncount = 0" << endl;
 		studentFile.open("studentTable.txt");
 
 		facultyFile.open("facultyTable.txt");
-	}
-	if (historic == actionCount%5)
+	}else
 	{
+		cout << "enters second if" << endl;
 		string facultyFileName = "historicFacultyTree" + to_string(actionCount%5) + ".txt";
 		facultyFile.open(facultyFileName);
 		string studentFileName = "historicStudentTree" + to_string(actionCount%5) + ".txt";
 		studentFile.open(studentFileName);
 	}
-	if (studentFile)
+	while(studentFile)
 	{
+		cout << "enters if(studentFile)" << endl;
+		//studentReadIn(studentFile);
+		int linecount = 0;
+		int tempID;
+		string tempName;
+		string tempGrade;
+		string tempMajor;
+		double tempGPA;
+		int tempAdvisorID;
+		while(getline(studentFile, currString))
+		{
+			linecount +=1;
+			if (linecount == 1)
+			{
+				cout << "linecount == 1" << endl;
+				tempID = stoi(currString);
+			}
+			if (linecount == 2)
+			{
+				cout << "linecount == 2" << endl;
+				tempName = currString;
+			}
+			if (linecount == 3)
+			{
+				cout << "linecount == 3" << endl;
+				tempGrade = currString;
+			}
+			if (linecount == 4)
+			{
+				cout << "linecount == 4" << endl;
+				tempMajor = currString;
+			}
+			if (linecount == 5)
+			{
+				cout << "linecount == 5" << endl;
+				tempGPA = stoi(currString);
+			}
+			if (linecount == 6)
+			{
+				cout << "linecount == 6" << endl;
+				//tempAdvisorID = stoi(currString);
+				cout << "right before student object" << endl;
+
+				Student thisStudent = Student(tempID, tempName, tempGrade, tempMajor, tempGPA, tempAdvisorID);
+				myStudentTree.insert(thisStudent);
+				linecount = 0;
+
+				cout << "adds student object" << endl;
+			}
+		}
+	}
+	//facultyFile.open("facultyTable.txt");
+	//}
+
+	/*if (studentFile)
+	{
+		cout << "enters if(studentFile)" << endl;
 		string currString;
 		//studentReadIn(studentFile);
 		int linecount = 0;
@@ -94,8 +155,8 @@ void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hi
 				linecount = 0;
 			}
 		}
-	}
-	facultyFile.open("facultyTable.txt");
+	}*/
+	/*facultyFile.open("facultyTable.txt");
 	if (facultyFile)
 	{
 		//facultyReadIn(studentFile);
@@ -145,7 +206,7 @@ void recallInfo(BST <Student> myStudentTree, BST <Faculty> myFacultyTree, int hi
 				}
 			}
 		}
-	}
+	}*/
 }
 
 main()
@@ -485,8 +546,8 @@ main()
 		}
 		if (userSelection == 14)
 		{
-			myStudentTree.printTreeToFile(myStudentTree.root, "studentTable");
-			myFacultyTree.printTreeToFile(myFacultyTree.root, "facultyTable");
+			myStudentTree.printTreeToFile(myStudentTree.root, "studentTable.txt");
+			myFacultyTree.printTreeToFile(myFacultyTree.root, "facultyTable.txt");
 			//Should write to the file here before we close the program entirely
 			//break;
 			exit(0);
