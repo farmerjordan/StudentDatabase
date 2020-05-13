@@ -55,7 +55,7 @@ std::ostream& operator<< (std::ostream& out, const Student& student)
 }
 std::ostream& operator >> (std::ostream& out, const Student& student)
 {
-		out << student.studentID << "\n"  << student.studentName << "\n" << student.studentGrade << "\n" << student.studentMajor << "\n" << student.studentGPA << "\n" << "Advisor: " << student.advisorID << endl;
+		out << student.studentID << "\n"  << student.studentName << "\n" << student.studentGrade << "\n" << student.studentMajor << "\n" << student.studentGPA << "\n" << student.advisorID << endl;
     return out;
 }
 
